@@ -29,23 +29,23 @@
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
 "247
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
-"321
+"281
 [v _initLCD initLCD `(v  1 e 1 0 ]
-"338
+"298
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
-"359
+"319
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
-"366
+"326
 [v _ISR ISR `II(v  1 e 1 0 ]
-"458
+"378
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
-"473
+"393
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
-"483
+"403
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
-"565
+"485
 [v _potenza potenza `(uc  1 e 1 0 ]
-"573
+"493
 [v _intToString intToString `(v  1 e 1 0 ]
 "59 C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f877a.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -163,64 +163,70 @@
 {
 "211
 } 0
-"321
+"281
 [v _initLCD initLCD `(v  1 e 1 0 ]
 {
-"336
+"296
+} 0
+"241
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+{
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 0 ]
+"245
 } 0
 "247
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
 {
-"248
-[v UART_Read@count count `uc  1 a 1 28 ]
-"319
+"279
 } 0
-"359
+"319
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
 {
-"360
+"320
 [v lcdPrint@n n `i  1 a 2 7 ]
-"359
+"319
 [v lcdPrint@str str `*.26uc  1 p 2 2 ]
-"364
+"324
 } 0
-"338
+"298
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
 {
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@tipo tipo `uc  1 p 1 0 ]
-"342
+"302
 [v lcdSend@dato dato `uc  1 a 1 1 ]
-"357
+"317
 } 0
-"573
+"493
 [v _intToString intToString `(v  1 e 1 0 ]
 {
-"582
+"502
 [v intToString@t t `uc  1 a 1 25 ]
-"577
+"497
 [v intToString@i i `uc  1 a 1 27 ]
-"576
+"496
 [v intToString@cifre cifre `uc  1 a 1 26 ]
-"573
+"493
 [v intToString@n n `i  1 p 2 19 ]
 [v intToString@str str `*.4uc  1 p 1 21 ]
-"588
+"508
 } 0
-"565
+"485
 [v _potenza potenza `(uc  1 e 1 0 ]
 {
 [v potenza@b b `uc  1 a 1 wreg ]
-"567
+"487
 [v potenza@i i `i  1 a 2 7 ]
-"566
+"486
 [v potenza@n n `uc  1 a 1 9 ]
-"565
+"485
 [v potenza@b b `uc  1 a 1 wreg ]
 [v potenza@e e `uc  1 p 1 4 ]
 [v potenza@b b `uc  1 a 1 6 ]
-"571
+"491
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -259,13 +265,15 @@
 [v ___awdiv@dividend dividend `i  1 p 2 12 ]
 "41
 } 0
-"241 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-[v _UART_Write UART_Write `(v  1 e 1 0 ]
+"213 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
 {
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 0 ]
-"245
+"229
+} 0
+"378
+[v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
+{
+"391
 } 0
 "231
 [v _RS485_TxEnable RS485_TxEnable `(v  1 e 1 0 ]
@@ -277,32 +285,22 @@
 {
 "239
 } 0
-"213
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
-{
-"229
-} 0
-"458
-[v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
-{
-"471
-} 0
-"483
+"403
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
 {
-"513
+"433
 } 0
-"473
+"393
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
 {
-"474
+"394
 [v GenerateRandomNumber@count count `ui  1 a 2 1 ]
-"478
+"398
 [v GenerateRandomNumber@randomNum randomNum `uc  1 a 1 0 ]
-"481
+"401
 } 0
-"366
+"326
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"456
+"376
 } 0

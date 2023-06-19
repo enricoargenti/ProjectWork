@@ -2257,63 +2257,23 @@ void UART_Write(char data) {
 }
 
 char UART_Read() {
-    char count = 0;
     countdown = 60;
     while (countdown != 0){
-        if (count != 5){
-            if(keypressed != 0 && count == 0){
+        if (!RCIF){
+            if(keypressed != 0){
                 lcdSend(0x01, 0);
                 lcdSend(keys[keypressed], 1);
-                num1 = keys[keypressed];
                 keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 1){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num2 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 2){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num3 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 3){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num4 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 4){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num5 = keys[keypressed];
-                keypressed = 0;
-                count ++;
             }
             intToString(countdown, print_countdown);
             lcdSend(0xC0, 0);
             lcdPrint(print_countdown);
             countdown --;
-            _delay((unsigned long)((80)*(20000000/4000.0)));
+
         }
         else{
-            RS485_TxEnable();
-            UART_Write(num1);
-            UART_Write(num2);
-            UART_Write(num3);
-            UART_Write(num4);
-            UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
-            RS485_RxEnable();
             lcdSend(0x01, 0);
-            lcdPrint("Mandato");
+            lcdPrint("Ricevuto");
             RCIF = 0;
             countdown = 60;
             _delay((unsigned long)((1000)*(20000000/4000.0)));
@@ -2396,46 +2356,6 @@ void __attribute__((picinterrupt(("")))) ISR() {
         continue;
     }
     TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
     if(flag == 1){
         TRISD |= 0x0F;
 
@@ -2484,7 +2404,7 @@ void Timer0_Init() {
 
 unsigned char GenerateRandomNumber() {
     unsigned int count = 0;
-    while (count != 186){
+    while (count != 8000){
         count++;
     }
     unsigned char randomNum = TMR0;
@@ -2523,7 +2443,7 @@ char KeyPadReader() {
     }
     while(1);
 }
-# 565 "main.c"
+# 485 "main.c"
 char potenza(char b, char e) {
     char n = 1;
     for (int i = 0; i < e; i++) {

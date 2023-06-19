@@ -88,7 +88,7 @@ static __bit old_btn;
 char stato = 0;
 char old_stato = 0;
 char codice[6];
-unsigned char countdown = 60;
+char countdown = 60;
 char print_countdown[3];
 char data[6];
 char stringa[16];
@@ -165,7 +165,7 @@ void main()
             //__delay_ms(50);
             lcdSend(L_CLR, COMMAND);
             lcdPrint("Attendere..");
-            while(num3 != 0x30 && num3 != 0x33 && num3 != 0x32 && num3 != 0x33 &&
+            while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
                   num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
                   num3 != 0x38 && num3 != 0x39){
             num3 = GenerateRandomNumber();
@@ -174,7 +174,7 @@ void main()
             //__delay_ms(50);
             lcdSend(L_CLR, COMMAND);
             lcdPrint("Attendere...");
-            while(num4 != 0x30 && num4 != 0x34 && num4 != 0x32 && num4 != 0x33 &&
+            while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
                   num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
                   num4 != 0x38 && num4 != 0x39){
             num4 = GenerateRandomNumber();
@@ -183,7 +183,7 @@ void main()
             //__delay_ms(50);
             lcdSend(L_CLR, COMMAND);
             lcdPrint("Attendere....");
-            while(num5 != 0x30 && num5 != 0x35 && num5 != 0x32 && num5 != 0x33 &&
+            while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
                   num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
                   num5 != 0x38 && num5 != 0x39){
             num5 = GenerateRandomNumber();
@@ -204,6 +204,7 @@ void main()
             lcdSend(num5, DATA);
             keypressed = 0;
             RS485_RxEnable();
+            flag = 1;
             UART_Read();
         //} 
     }
@@ -244,22 +245,68 @@ void UART_Write(char data) {
 }
 
 char UART_Read() {
-    while (countdown != 0){
-        if (!RCIF){
+    char count = 0;
+    countdown = 60;
+    while (countdown != 0){   //!RCIF
+        if (count != 5){
+            if(keypressed != 0 && count == 0){
+                lcdSend(L_CLR, COMMAND);
+                lcdSend(keys[keypressed], DATA);
+                num1 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 1){
+                lcdSend(0x80 + count, COMMAND);
+                lcdSend(keys[keypressed], DATA);
+                num2 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 2){
+                lcdSend(0x80 + count, COMMAND);
+                lcdSend(keys[keypressed], DATA);
+                num3 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 3){
+                lcdSend(0x80 + count, COMMAND);
+                lcdSend(keys[keypressed], DATA);
+                num4 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 4){
+                lcdSend(0x80 + count, COMMAND);
+                lcdSend(keys[keypressed], DATA);
+                num5 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
             intToString(countdown, print_countdown);
             lcdSend(L_L2, COMMAND);
             lcdPrint(print_countdown);
             countdown --;
-            __delay_ms(200);
+            __delay_ms(80);
         }        
         else{
+            RS485_TxEnable();
+            UART_Write(num1);
+            UART_Write(num2);
+            UART_Write(num3);
+            UART_Write(num4);
+            UART_Write(num5);
+            UART_Write('\r');
+            UART_Write('\n');
+            RS485_RxEnable();
             lcdSend(L_CLR, COMMAND);
-            lcdPrint("Ricevuto");
+            lcdPrint("Mandato");
             RCIF = 0;
             countdown = 60;
             __delay_ms(1000);
             return RCREG; // Return received data
-        }      
+        }
     }
     lcdSend(L_CLR, COMMAND);
     lcdPrint("Codice Scaduto");
@@ -303,9 +350,9 @@ void lcdSend(char dato, char tipo) {
     // imposto 
     LCDPORT = dato;
     LCD_RS = tipo;
-    __delay_ms(3); // nel simulatore va anche con 1
+    //__delay_ms(3); // nel simulatore va anche con 1
     LCD_EN = 0;
-    __delay_ms(3);
+    //__delay_ms(3);
     LCD_EN = 1;
 }
 
@@ -337,6 +384,75 @@ void __interrupt() ISR() {
         continue;
     }
     TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    if(flag == 1){
+        TRISD |= 0x0F;
+        // porto a massa una colonna alla volta
+        for (colScan = 0; colScan < 3; colScan++) {
+            PORTB = PORTB | 0x07; // porto tutte le colonne a 1
+            PORTB &= colMask[colScan]; // porto a zero la colonna attuale
+
+            // ciclo sulle righe
+            for (rowScan = 0; rowScan < 4; rowScan++) {
+                if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
+                    old_btn = 0;
+                    stato++;
+                }
+                if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
+                    //__delay_ms(10);
+                    if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
+                        old_btn = 1;
+                    }
+                }
+                if (stato != old_stato) {
+                    keypressed = rowScan + (4 * colScan); // numero di pulsante premuto
+                    // chiamo la funzione
+                    //KeyPressed(keypressed, codice);
+                    old_stato = stato;
+                }
+            }
+        }
+        TRISD |= 0x00;
+    }
 }
 
 void Timer0_Init() {
@@ -356,7 +472,7 @@ void Timer0_Init() {
 
 unsigned char GenerateRandomNumber() {
     unsigned int count = 0;
-    while (count != 8000){
+    while (count != 186){
         count++;
     }
     unsigned char randomNum = TMR0;

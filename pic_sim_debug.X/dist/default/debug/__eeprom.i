@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\pic\\__eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,216 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\__null.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdarg.h" 1 3
-
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 2 3
-
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 12 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdlib.h" 1 3
-
-
-
-
-
-
-typedef unsigned short wchar_t;
-
-
-
-
-
-
-
-typedef struct {
- int rem;
- int quot;
-} div_t;
-typedef struct {
- unsigned rem;
- unsigned quot;
-} udiv_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- unsigned long quot;
- unsigned long rem;
-} uldiv_t;
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdlib.h" 3
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-
-
-
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-
-
-
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 99 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdlib.h" 2 3
-
-
-
-
-
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-# 13 "main.c" 2
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 # 1 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -224,7 +15,11 @@ extern double __fpnormalize(double);
 
 
 
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 24 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
 # 1 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\builtins.h" 1 3
 
 
@@ -2058,493 +1853,176 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 14 "main.c" 2
-# 51 "main.c"
-void __attribute__((picinterrupt(("")))) ISR();
-void UART_Init(void);
-void RS485_TxEnable(void);
-void RS485_RxEnable(void);
-void UART_Write(char data);
-char UART_Read(void);
-void initLCD(void);
-void lcdSend(char, char);
-void lcdPrint(char *);
-void Timer0_Init(void);
-unsigned char GenerateRandomNumber(void);
-char KeyPadReader(void);
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 
-void intToString(int, char *);
-char potenza(char, char);
-unsigned char num1,num2,num3,num4,num5;
-const unsigned char colMask[3] ={
 
-    0b11111110,
-    0b11111101,
-    0b11111011
-};
-const unsigned char rowMask[4] ={
-    0b00000001,
-    0b00000010,
-    0b00000100,
-    0b00001000
-};
 
-const unsigned char keys[] = {'#', '7', '4', '1', '*',
-'8', '5', '2', '0', '9', '6', '3'};
-unsigned char keypressed = 0;
-char keyok = 0;
 
-unsigned char colScan = 0;
-unsigned char rowScan = 0;
-static __bit old_btn;
-char stato = 0;
-char old_stato = 0;
-char codice[6];
-char countdown = 60;
-char print_countdown[3];
-char data[6];
-char stringa[16];
-int stringPosition = 0;
-unsigned char restart = 0;
-int flag = 0;
-int index;
-char received;
-unsigned char randomNum;
-unsigned int count = 0;
-
-void main()
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
 {
-    TRISA=0x00;
- TRISB=0x00;
- TRISC=0x00;
- TRISD=0x00;
-    TRISE=0X00;
-    UART_Init();
-    initLCD();
-    Timer0_Init();
-    while(1)
-    {
-        lcdSend(0x01, 0);
-        lcdPrint("Premi *");
-        RS485_TxEnable();
-        UART_Write('P');
-        UART_Write('r');
-        UART_Write('e');
-        UART_Write('m');
-        UART_Write('i');
-        UART_Write(' ');
-        UART_Write('*');
-        UART_Write('\r');
-        UART_Write('\n');
+ volatile unsigned char *cp = to;
 
-        num1 = GenerateRandomNumber();
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)from;
+ while(size--) {
+  while (EECON1bits.WR) continue;
 
-        num2 = GenerateRandomNumber();
+  EECON1 &= 0x7F;
 
-        num3 = GenerateRandomNumber();
-
-        num4 = GenerateRandomNumber();
-
-        num5 = GenerateRandomNumber();
-
-        while (codice[0] == '\0')
-        {
-            KeyPadReader();
-            if (keys[keypressed] == '*'){
-                break;
-            }
-        }
-
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere");
-            RS485_TxEnable();
-            while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
-                  num1 != 0x34 && num1 != 0x35 && num1 != 0x36 && num1 != 0x37 &&
-                  num1 != 0x38 && num1 != 0x39){
-            num1 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere.");
-            while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
-                  num2 != 0x34 && num2 != 0x35 && num2 != 0x36 && num2 != 0x37 &&
-                  num2 != 0x38 && num2 != 0x39){
-            num2 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere..");
-            while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
-                  num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
-                  num3 != 0x38 && num3 != 0x39){
-            num3 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere...");
-            while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
-                  num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
-                  num4 != 0x38 && num4 != 0x39){
-            num4 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere....");
-            while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
-                  num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
-                  num5 != 0x38 && num5 != 0x39){
-            num5 = GenerateRandomNumber();
-
-            }
-            UART_Write(num1);
-            UART_Write(num2);
-            UART_Write(num3);
-            UART_Write(num4);
-            UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
-            lcdSend(0x01, 0);
-            lcdSend(num1, 1);
-            lcdSend(num2, 1);
-            lcdSend(num3, 1);
-            lcdSend(num4, 1);
-            lcdSend(num5, 1);
-            keypressed = 0;
-            RS485_RxEnable();
-            flag = 1;
-            UART_Read();
-
-    }
+  EECON1bits.RD = 1;
+  *cp++ = EEDATA;
+  ++EEADR;
+ }
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\pic\\__eeprom.c"
 }
 
-void UART_Init() {
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+{
+ const unsigned char *ptr =from;
 
-    TRISC6 = 0;
-    TRISC7 = 1;
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)to - 1U;
 
+ EECON1 &= 0x7F;
 
-    BRGH = 1;
-    SPBRG = 51;
-
-
-    SYNC = 0;
-    SPEN = 1;
-
-
-    TXEN = 1;
-    CREN = 1;
+ while(size--) {
+  while (EECON1bits.WR) {
+   continue;
+  }
+  EEDATA = *ptr++;
+  ++EEADR;
+  STATUSbits.CARRY = 0;
+  if (INTCONbits.GIE) {
+   STATUSbits.CARRY = 1;
+  }
+  INTCONbits.GIE = 0;
+  EECON1bits.WREN = 1;
+  EECON2 = 0x55;
+  EECON2 = 0xAA;
+  EECON1bits.WR = 1;
+  EECON1bits.WREN = 0;
+  if (STATUSbits.CARRY) {
+   INTCONbits.GIE = 1;
+  }
+ }
+# 101 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\pic\\__eeprom.c"
 }
 
-void RS485_TxEnable() {
-    RC0 = 1;
-    RC1 = 0;
+unsigned char
+__eetoc(__eeprom void *addr)
+{
+ unsigned char data;
+ __eecpymem((unsigned char *) &data,addr,1);
+ return data;
 }
 
-void RS485_RxEnable() {
-    RC0 = 0;
-    RC1 = 1;
+unsigned int
+__eetoi(__eeprom void *addr)
+{
+ unsigned int data;
+ __eecpymem((unsigned char *) &data,addr,2);
+ return data;
 }
 
-void UART_Write(char data) {
-    while (!TXIF)
-        continue;
-    TXREG = data;
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
+{
+ __uint24 data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+#pragma warning pop
+
+unsigned long
+__eetol(__eeprom void *addr)
+{
+ unsigned long data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
 }
 
-char UART_Read() {
-    char count = 0;
-    countdown = 60;
-    while (countdown != 0){
-        if (count != 5){
-            if(keypressed != 0 && count == 0){
-                lcdSend(0x01, 0);
-                lcdSend(keys[keypressed], 1);
-                num1 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 1){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num2 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 2){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num3 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 3){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num4 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            if(keypressed != 0 && count == 4){
-                lcdSend(0x80 + count, 0);
-                lcdSend(keys[keypressed], 1);
-                num5 = keys[keypressed];
-                keypressed = 0;
-                count ++;
-            }
-            intToString(countdown, print_countdown);
-            lcdSend(0xC0, 0);
-            lcdPrint(print_countdown);
-            countdown --;
-            _delay((unsigned long)((80)*(20000000/4000.0)));
-        }
-        else{
-            RS485_TxEnable();
-            UART_Write(num1);
-            UART_Write(num2);
-            UART_Write(num3);
-            UART_Write(num4);
-            UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
-            RS485_RxEnable();
-            lcdSend(0x01, 0);
-            lcdPrint("Mandato");
-            RCIF = 0;
-            countdown = 60;
-            _delay((unsigned long)((1000)*(20000000/4000.0)));
-            return RCREG;
-        }
-    }
-    lcdSend(0x01, 0);
-    lcdPrint("Codice Scaduto");
-    RCIF = 0;
-    countdown = 60;
-    _delay((unsigned long)((1000)*(20000000/4000.0)));
-    return RCREG;
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
+{
+ unsigned long long data;
+ __eecpymem((unsigned char *) &data,addr,8);
+ return data;
+}
+#pragma warning pop
 
-
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
+{
+ __memcpyee(addr,(unsigned char *) &data,1);
+ return data;
 }
 
-void initLCD() {
-    PORTEbits.RE2 = 0;
-    PORTEbits.RE1 = 0;
-    _delay((unsigned long)((20)*(20000000/4000.0)));
-    PORTEbits.RE1 = 1;
-    lcdSend(0x38, 0);
-    _delay((unsigned long)((5)*(20000000/4000.0)));
-    lcdSend(0x38, 0);
-    _delay((unsigned long)((1)*(20000000/4000.0)));
-    lcdSend(0x38, 0);
-    lcdSend(0x08, 0);
-    lcdSend(0x0F, 0);
-    lcdSend(0x01, 0);
-    lcdSend(0x0C, 0);
-    lcdSend(0x80, 0);
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
+{
+ __memcpyee(addr,(unsigned char *) &data,2);
+ return data;
 }
 
-void lcdSend(char dato, char tipo) {
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+#pragma warning pop
 
-
-
-    TRISD = 0x00;
-    TRISEbits.TRISE1 = 0;
-    TRISEbits.TRISE2 = 0;
-
-
-
-
-    PORTEbits.RE1 = 1;
-
-    PORTD = dato;
-    PORTEbits.RE2 = tipo;
-
-    PORTEbits.RE1 = 0;
-
-    PORTEbits.RE1 = 1;
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }
 
-void lcdPrint(char *str) {
-    int n = 0;
-    while (str[n] != '\0') {
-        lcdSend(str[n++], 1);
-    }
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,8);
+ return data;
+}
+#pragma warning pop
+
+float
+__eetoft(__eeprom void *addr)
+{
+ float data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
 }
 
-void __attribute__((picinterrupt(("")))) ISR() {
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    if(flag == 1){
-        TRISD |= 0x0F;
-
-        for (colScan = 0; colScan < 3; colScan++) {
-            PORTB = PORTB | 0x07;
-            PORTB &= colMask[colScan];
-
-
-            for (rowScan = 0; rowScan < 4; rowScan++) {
-                if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-                    old_btn = 0;
-                    stato++;
-                }
-                if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-
-                    if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                        old_btn = 1;
-                    }
-                }
-                if (stato != old_stato) {
-                    keypressed = rowScan + (4 * colScan);
-
-
-                    old_stato = stato;
-                }
-            }
-        }
-        TRISD |= 0x00;
-    }
+double
+__eetofl(__eeprom void *addr)
+{
+ double data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
 }
 
-void Timer0_Init() {
-
-    T0CS = 0;
-    PSA = 0;
-    PS2 = 1;
-    PS1 = 1;
-    PS0 = 1;
-
-
-    TMR0 = 6;
-    TMR0IF = 0;
-    TMR0IE = 1;
-    GIE = 1;
+float
+__fttoee(__eeprom void *addr, float data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
 }
 
-unsigned char GenerateRandomNumber() {
-    unsigned int count = 0;
-    while (count != 186){
-        count++;
-    }
-    unsigned char randomNum = TMR0;
-    TMR0IF = 0;
-    return randomNum;
-}
-
-char KeyPadReader() {
-    TRISD |= 0x0F;
-    do
-
-    for (colScan = 0; colScan < 3; colScan++) {
-        PORTB = PORTB | 0x07;
-        PORTB &= colMask[colScan];
-
-
-        for (rowScan = 0; rowScan < 4; rowScan++) {
-            if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-                old_btn = 0;
-                stato++;
-            }
-            if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                _delay((unsigned long)((10)*(20000000/4000.0)));
-                if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                    old_btn = 1;
-                }
-            }
-            if (stato != old_stato) {
-                keypressed = rowScan + (4 * colScan);
-
-
-                old_stato = stato;
-                return keypressed;
-            }
-        }
-    }
-    while(1);
-}
-# 565 "main.c"
-char potenza(char b, char e) {
-    char n = 1;
-    for (int i = 0; i < e; i++) {
-        n = n * b;
-    }
-    return n;
-}
-
-void intToString(int n, char *str) {
-
-
-    char cifre = 1;
-    char i = 0;
-
-    while (n / potenza(10, cifre)) cifre++;
-
-    for (i = 0; i < cifre; i++) {
-        char t = potenza(10, cifre - 1 - i);
-        str[i] = '0' + (char) (n / t);
-        n = n % t;
-    }
-
-    str[i] = '\0';
+double
+__fltoee(__eeprom void *addr, double data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }
