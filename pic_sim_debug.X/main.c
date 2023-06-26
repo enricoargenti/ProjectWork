@@ -53,7 +53,8 @@ void UART_Init(void);
 void RS485_TxEnable(void);
 void RS485_RxEnable(void);
 void UART_Write(char data);
-char UART_Read(void);
+char UART_Read1(void);
+char UART_Read2(void);
 void initLCD(void);
 void lcdSend(char, char);
 void lcdPrint(char *);
@@ -99,6 +100,9 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
+unsigned char id1 = 0x30;
+unsigned char id2 = 0x31;
+unsigned char type;
 
 void main()
 {
@@ -124,17 +128,11 @@ void main()
         UART_Write('*');
         UART_Write('\r');
         UART_Write('\n');
-        //__delay_ms(50);
         num1 = GenerateRandomNumber();
-        //__delay_ms(50);
         num2 = GenerateRandomNumber();
-        //__delay_ms(50);
         num3 = GenerateRandomNumber();
-        //__delay_ms(50);
         num4 = GenerateRandomNumber();
-        //__delay_ms(50);
         num5 = GenerateRandomNumber();
-        //__delay_ms(50);
         while (codice[0] == '\0')
         {   
             KeyPadReader();
@@ -142,71 +140,63 @@ void main()
                 break;
             }
         }
-        //if (receivedData == '*')
-        //{
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere");
-            RS485_TxEnable();
-            while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
-                  num1 != 0x34 && num1 != 0x35 && num1 != 0x36 && num1 != 0x37 &&
-                  num1 != 0x38 && num1 != 0x39){
-            num1 = GenerateRandomNumber();
-            //__delay_ms(50);
-            }
-            //__delay_ms(50);
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere.");
-            while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
-                  num2 != 0x34 && num2 != 0x35 && num2 != 0x36 && num2 != 0x37 &&
-                  num2 != 0x38 && num2 != 0x39){
-            num2 = GenerateRandomNumber();
-            //__delay_ms(50);
-            }
-            //__delay_ms(50);
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere..");
-            while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
-                  num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
-                  num3 != 0x38 && num3 != 0x39){
-            num3 = GenerateRandomNumber();
-            //__delay_ms(50);
-            }
-            //__delay_ms(50);
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere...");
-            while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
-                  num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
-                  num4 != 0x38 && num4 != 0x39){
-            num4 = GenerateRandomNumber();
-            //__delay_ms(50);
-            }
-            //__delay_ms(50);
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere....");
-            while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
-                  num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
-                  num5 != 0x38 && num5 != 0x39){
-            num5 = GenerateRandomNumber();
-            //__delay_ms(50);
-            }
-            UART_Write(num1);
-            UART_Write(num2);
-            UART_Write(num3);
-            UART_Write(num4);
-            UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
-            lcdSend(L_CLR, COMMAND);
-            lcdSend(num1, DATA);
-            lcdSend(num2, DATA);
-            lcdSend(num3, DATA);
-            lcdSend(num4, DATA);
-            lcdSend(num5, DATA);
-            keypressed = 0;
-            RS485_RxEnable();
-            flag = 1;
-            UART_Read();
-        //} 
+        lcdSend(L_CLR, COMMAND);
+        lcdPrint("Attendere");
+        while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
+              num1 != 0x34 && num1 != 0x35 && num1 != 0x36 && num1 != 0x37 &&
+              num1 != 0x38 && num1 != 0x39){
+        num1 = GenerateRandomNumber();
+        }
+        lcdSend(L_CLR, COMMAND);
+        lcdPrint("Attendere.");
+        while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
+              num2 != 0x34 && num2 != 0x35 && num2 != 0x36 && num2 != 0x37 &&
+              num2 != 0x38 && num2 != 0x39){
+        num2 = GenerateRandomNumber();
+        }
+        lcdSend(L_CLR, COMMAND);
+        lcdPrint("Attendere..");
+        while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
+              num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
+              num3 != 0x38 && num3 != 0x39){
+        num3 = GenerateRandomNumber();
+        }
+        lcdSend(L_CLR, COMMAND);
+        lcdPrint("Attendere...");
+        while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
+              num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
+              num4 != 0x38 && num4 != 0x39){
+        num4 = GenerateRandomNumber();
+        }
+        lcdSend(L_CLR, COMMAND);
+        lcdPrint("Attendere....");
+        while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
+              num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
+              num5 != 0x38 && num5 != 0x39){
+        num5 = GenerateRandomNumber();
+        }
+        UART_Write(id1);
+        UART_Write(id2);
+        type = 0x31;
+        UART_Write(type);
+        UART_Write(num1);
+        UART_Write(num2);
+        UART_Write(num3);
+        UART_Write(num4);
+        UART_Write(num5);
+        UART_Write('\r');
+        UART_Write('\n');
+        lcdSend(L_CLR, COMMAND);
+        lcdSend(num1, DATA);
+        lcdSend(num2, DATA);
+        lcdSend(num3, DATA);
+        lcdSend(num4, DATA);
+        lcdSend(num5, DATA);
+        keypressed = 0;
+        RS485_RxEnable();
+        flag = 1;
+        UART_Read1();
+        //UART_Read2();
     }
 }
 
@@ -244,7 +234,56 @@ void UART_Write(char data) {
     TXREG = data; // Transmit data
 }
 
-char UART_Read() {
+char UART_Read2() {
+    while (countdown != 0){
+        if (!RCIF){
+            lcdSend(L_CLR, COMMAND);
+            lcdPrint("Attendere");
+            intToString(countdown, print_countdown);
+            lcdSend(L_L2, COMMAND);
+            lcdPrint(print_countdown);
+            countdown --;
+            RCREG = 0x00;
+            __delay_ms(60);
+        }        
+        else{
+            if(RCREG == id1){
+                RCIF = 0;
+                RCREG = 0x00;
+                while (!RCIF) // Wait for data to be received
+                continue;
+                if(RCREG == id2){
+                    RCIF = 0;
+                    RCREG = 0x00;
+                    lcdSend(L_CLR, COMMAND);
+                    lcdPrint("Ricevuto");
+                    if(RCREG == 0x33){
+                        __delay_ms(60);
+                        lcdSend(L_CLR, COMMAND);
+                        lcdPrint("Porta Aperta");
+                    }
+                    RCIF = 0;
+                    countdown = 60;        
+                    __delay_ms(200);
+                    lcdSend(L_CLR, COMMAND);
+                    lcdSend(RCREG, DATA);
+                    __delay_ms(200);
+                    return RCREG; // Return received data
+                }
+            }
+        }      
+    }
+    lcdSend(L_CLR, COMMAND);
+    lcdPrint("Tempo Scaduto");
+    RCIF = 0;
+    countdown = 60;
+    __delay_ms(200);
+    return RCREG;
+        /*while (!RCIF) // Wait for data to be received
+        continue;*/
+}
+
+char UART_Read1() {
     char count = 0;
     countdown = 60;
     while (countdown != 0){   //!RCIF
@@ -292,6 +331,8 @@ char UART_Read() {
         }        
         else{
             RS485_TxEnable();
+            UART_Write(id1);
+            UART_Write(id2);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);
@@ -304,7 +345,7 @@ char UART_Read() {
             lcdPrint("Mandato");
             RCIF = 0;
             countdown = 60;
-            __delay_ms(1000);
+            __delay_ms(100);
             return RCREG; // Return received data
         }
     }
@@ -312,7 +353,7 @@ char UART_Read() {
     lcdPrint("Codice Scaduto");
     RCIF = 0;
     countdown = 60;
-    __delay_ms(1000);
+    __delay_ms(200);
     return RCREG;
         /*while (!RCIF) // Wait for data to be received
         continue;*/

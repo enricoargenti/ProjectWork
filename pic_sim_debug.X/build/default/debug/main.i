@@ -2065,7 +2065,8 @@ void UART_Init(void);
 void RS485_TxEnable(void);
 void RS485_RxEnable(void);
 void UART_Write(char data);
-char UART_Read(void);
+char UART_Read1(void);
+char UART_Read2(void);
 void initLCD(void);
 void lcdSend(char, char);
 void lcdPrint(char *);
@@ -2111,6 +2112,9 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
+unsigned char id1 = 0x30;
+unsigned char id2 = 0x31;
+unsigned char type;
 
 void main()
 {
@@ -2136,17 +2140,11 @@ void main()
         UART_Write('*');
         UART_Write('\r');
         UART_Write('\n');
-
         num1 = GenerateRandomNumber();
-
         num2 = GenerateRandomNumber();
-
         num3 = GenerateRandomNumber();
-
         num4 = GenerateRandomNumber();
-
         num5 = GenerateRandomNumber();
-
         while (codice[0] == '\0')
         {
             KeyPadReader();
@@ -2154,71 +2152,63 @@ void main()
                 break;
             }
         }
-
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere");
-            RS485_TxEnable();
-            while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
-                  num1 != 0x34 && num1 != 0x35 && num1 != 0x36 && num1 != 0x37 &&
-                  num1 != 0x38 && num1 != 0x39){
-            num1 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere.");
-            while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
-                  num2 != 0x34 && num2 != 0x35 && num2 != 0x36 && num2 != 0x37 &&
-                  num2 != 0x38 && num2 != 0x39){
-            num2 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere..");
-            while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
-                  num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
-                  num3 != 0x38 && num3 != 0x39){
-            num3 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere...");
-            while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
-                  num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
-                  num4 != 0x38 && num4 != 0x39){
-            num4 = GenerateRandomNumber();
-
-            }
-
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere....");
-            while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
-                  num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
-                  num5 != 0x38 && num5 != 0x39){
-            num5 = GenerateRandomNumber();
-
-            }
-            UART_Write(num1);
-            UART_Write(num2);
-            UART_Write(num3);
-            UART_Write(num4);
-            UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
-            lcdSend(0x01, 0);
-            lcdSend(num1, 1);
-            lcdSend(num2, 1);
-            lcdSend(num3, 1);
-            lcdSend(num4, 1);
-            lcdSend(num5, 1);
-            keypressed = 0;
-            RS485_RxEnable();
-            flag = 1;
-            UART_Read();
-
+        lcdSend(0x01, 0);
+        lcdPrint("Attendere");
+        while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
+              num1 != 0x34 && num1 != 0x35 && num1 != 0x36 && num1 != 0x37 &&
+              num1 != 0x38 && num1 != 0x39){
+        num1 = GenerateRandomNumber();
+        }
+        lcdSend(0x01, 0);
+        lcdPrint("Attendere.");
+        while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
+              num2 != 0x34 && num2 != 0x35 && num2 != 0x36 && num2 != 0x37 &&
+              num2 != 0x38 && num2 != 0x39){
+        num2 = GenerateRandomNumber();
+        }
+        lcdSend(0x01, 0);
+        lcdPrint("Attendere..");
+        while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
+              num3 != 0x34 && num3 != 0x35 && num3 != 0x36 && num3 != 0x37 &&
+              num3 != 0x38 && num3 != 0x39){
+        num3 = GenerateRandomNumber();
+        }
+        lcdSend(0x01, 0);
+        lcdPrint("Attendere...");
+        while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
+              num4 != 0x34 && num4 != 0x35 && num4 != 0x36 && num4 != 0x37 &&
+              num4 != 0x38 && num4 != 0x39){
+        num4 = GenerateRandomNumber();
+        }
+        lcdSend(0x01, 0);
+        lcdPrint("Attendere....");
+        while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
+              num5 != 0x34 && num5 != 0x35 && num5 != 0x36 && num5 != 0x37 &&
+              num5 != 0x38 && num5 != 0x39){
+        num5 = GenerateRandomNumber();
+        }
+        UART_Write(id1);
+        UART_Write(id2);
+        type = 0x31;
+        UART_Write(type);
+        UART_Write(num1);
+        UART_Write(num2);
+        UART_Write(num3);
+        UART_Write(num4);
+        UART_Write(num5);
+        UART_Write('\r');
+        UART_Write('\n');
+        lcdSend(0x01, 0);
+        lcdSend(num1, 1);
+        lcdSend(num2, 1);
+        lcdSend(num3, 1);
+        lcdSend(num4, 1);
+        lcdSend(num5, 1);
+        keypressed = 0;
+        RS485_RxEnable();
+        flag = 1;
+        UART_Read1();
+        UART_Read2();
     }
 }
 
@@ -2256,27 +2246,118 @@ void UART_Write(char data) {
     TXREG = data;
 }
 
-char UART_Read() {
-    countdown = 60;
+char UART_Read2() {
     while (countdown != 0){
         if (!RCIF){
-            if(keypressed != 0){
+            lcdSend(0x01, 0);
+            lcdPrint("Attendere");
+            intToString(countdown, print_countdown);
+            lcdSend(0xC0, 0);
+            lcdPrint(print_countdown);
+            countdown --;
+            RCREG = 0x00;
+            _delay((unsigned long)((60)*(20000000/4000.0)));
+        }
+        else{
+            if(RCREG == id1){
+                RCIF = 0;
+                RCREG = 0x00;
+                while (!RCIF)
+                continue;
+                if(RCREG == id2){
+                    RCIF = 0;
+                    RCREG = 0x00;
+                    lcdSend(0x01, 0);
+                    lcdPrint("Ricevuto");
+                    if(RCREG == 0x33){
+                        _delay((unsigned long)((60)*(20000000/4000.0)));
+                        lcdSend(0x01, 0);
+                        lcdPrint("Porta Aperta");
+                    }
+                    RCIF = 0;
+                    countdown = 60;
+                    _delay((unsigned long)((200)*(20000000/4000.0)));
+                    lcdSend(0x01, 0);
+                    lcdSend(RCREG, 1);
+                    _delay((unsigned long)((200)*(20000000/4000.0)));
+                    return RCREG;
+                }
+            }
+        }
+    }
+    lcdSend(0x01, 0);
+    lcdPrint("Tempo Scaduto");
+    RCIF = 0;
+    countdown = 60;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    return RCREG;
+
+
+}
+
+char UART_Read1() {
+    char count = 0;
+    countdown = 60;
+    while (countdown != 0){
+        if (count != 5){
+            if(keypressed != 0 && count == 0){
                 lcdSend(0x01, 0);
                 lcdSend(keys[keypressed], 1);
+                num1 = keys[keypressed];
                 keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 1){
+                lcdSend(0x80 + count, 0);
+                lcdSend(keys[keypressed], 1);
+                num2 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 2){
+                lcdSend(0x80 + count, 0);
+                lcdSend(keys[keypressed], 1);
+                num3 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 3){
+                lcdSend(0x80 + count, 0);
+                lcdSend(keys[keypressed], 1);
+                num4 = keys[keypressed];
+                keypressed = 0;
+                count ++;
+            }
+            if(keypressed != 0 && count == 4){
+                lcdSend(0x80 + count, 0);
+                lcdSend(keys[keypressed], 1);
+                num5 = keys[keypressed];
+                keypressed = 0;
+                count ++;
             }
             intToString(countdown, print_countdown);
             lcdSend(0xC0, 0);
             lcdPrint(print_countdown);
             countdown --;
-
+            _delay((unsigned long)((80)*(20000000/4000.0)));
         }
         else{
+            RS485_TxEnable();
+            UART_Write(id1);
+            UART_Write(id2);
+            UART_Write(num1);
+            UART_Write(num2);
+            UART_Write(num3);
+            UART_Write(num4);
+            UART_Write(num5);
+            UART_Write('\r');
+            UART_Write('\n');
+            RS485_RxEnable();
             lcdSend(0x01, 0);
-            lcdPrint("Ricevuto");
+            lcdPrint("Mandato");
             RCIF = 0;
             countdown = 60;
-            _delay((unsigned long)((1000)*(20000000/4000.0)));
+            _delay((unsigned long)((100)*(20000000/4000.0)));
             return RCREG;
         }
     }
@@ -2284,7 +2365,7 @@ char UART_Read() {
     lcdPrint("Codice Scaduto");
     RCIF = 0;
     countdown = 60;
-    _delay((unsigned long)((1000)*(20000000/4000.0)));
+    _delay((unsigned long)((200)*(20000000/4000.0)));
     return RCREG;
 
 
@@ -2356,6 +2437,46 @@ void __attribute__((picinterrupt(("")))) ISR() {
         continue;
     }
     TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
+    while (!TMR0IF){
+        continue;
+    }
+    TMR0IF = 0;
     if(flag == 1){
         TRISD |= 0x0F;
 
@@ -2404,7 +2525,7 @@ void Timer0_Init() {
 
 unsigned char GenerateRandomNumber() {
     unsigned int count = 0;
-    while (count != 8000){
+    while (count != 186){
         count++;
     }
     unsigned char randomNum = TMR0;
@@ -2443,7 +2564,7 @@ char KeyPadReader() {
     }
     while(1);
 }
-# 485 "main.c"
+# 606 "main.c"
 char potenza(char b, char e) {
     char n = 1;
     for (int i = 0; i < e; i++) {

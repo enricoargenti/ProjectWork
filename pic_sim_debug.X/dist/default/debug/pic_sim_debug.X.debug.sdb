@@ -17,35 +17,37 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"103 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+"107 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"213
+"203
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
-"231
+"221
 [v _RS485_TxEnable RS485_TxEnable `(v  1 e 1 0 ]
-"236
+"226
 [v _RS485_RxEnable RS485_RxEnable `(v  1 e 1 0 ]
-"241
+"231
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
-"247
-[v _UART_Read UART_Read `(uc  1 e 1 0 ]
-"281
+"237
+[v _UART_Read2 UART_Read2 `(uc  1 e 1 0 ]
+"286
+[v _UART_Read1 UART_Read1 `(uc  1 e 1 0 ]
+"362
 [v _initLCD initLCD `(v  1 e 1 0 ]
-"298
+"379
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
-"319
+"400
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
-"326
+"407
 [v _ISR ISR `II(v  1 e 1 0 ]
-"378
+"499
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
-"393
+"514
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
-"403
+"524
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
-"485
+"606
 [v _potenza potenza `(uc  1 e 1 0 ]
-"493
+"614
 [v _intToString intToString `(v  1 e 1 0 ]
 "59 C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f877a.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -53,13 +55,13 @@
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S101 . 1 `uc 1 RE0 1 0 :1:0 
+[s S105 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
 "414
-[u S105 . 1 `S101 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES105  1 e 1 @9 ]
+[u S109 . 1 `S105 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES109  1 e 1 @9 ]
 "1059
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1066
@@ -74,7 +76,7 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S112 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S116 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -84,8 +86,8 @@
 `uc 1 IBF 1 0 :1:7 
 ]
 "1578
-[u S121 . 1 `S112 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES121  1 e 1 @137 ]
+[u S125 . 1 `S116 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES125  1 e 1 @137 ]
 "2080
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2420
@@ -126,107 +128,108 @@
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "3041
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"66 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+"67 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
 [v _num1 num1 `uc  1 e 1 0 ]
 [v _num2 num2 `uc  1 e 1 0 ]
 [v _num3 num3 `uc  1 e 1 0 ]
 [v _num4 num4 `uc  1 e 1 0 ]
 [v _num5 num5 `uc  1 e 1 0 ]
-"67
+"68
 [v _colMask colMask `DC[3]uc  1 e 3 0 ]
-"73
+"74
 [v _rowMask rowMask `DC[4]uc  1 e 4 0 ]
-"80
+"81
 [v _keys keys `DC[12]uc  1 e 12 0 ]
-"82
+"83
 [v _keypressed keypressed `uc  1 e 1 0 ]
-"85
-[v _colScan colScan `uc  1 e 1 0 ]
 "86
-[v _rowScan rowScan `uc  1 e 1 0 ]
+[v _colScan colScan `uc  1 e 1 0 ]
 "87
-[v _old_btn old_btn `b  1 s 0 old_btn ]
+[v _rowScan rowScan `uc  1 e 1 0 ]
 "88
-[v _stato stato `uc  1 e 1 0 ]
+[v _old_btn old_btn `b  1 s 0 old_btn ]
 "89
-[v _old_stato old_stato `uc  1 e 1 0 ]
+[v _stato stato `uc  1 e 1 0 ]
 "90
-[v _codice codice `[6]uc  1 e 6 0 ]
+[v _old_stato old_stato `uc  1 e 1 0 ]
 "91
-[v _countdown countdown `uc  1 e 1 0 ]
+[v _codice codice `[6]uc  1 e 6 0 ]
 "92
+[v _countdown countdown `uc  1 e 1 0 ]
+"93
 [v _print_countdown print_countdown `[3]uc  1 e 3 0 ]
-"97
+"98
 [v _flag flag `i  1 e 2 0 ]
-"103
+"105
+[v _type type `uc  1 e 1 0 ]
+"107
 [v _main main `(v  1 e 1 0 ]
 {
-"211
+"201
 } 0
-"281
+"362
 [v _initLCD initLCD `(v  1 e 1 0 ]
 {
-"296
+"377
 } 0
-"241
-[v _UART_Write UART_Write `(v  1 e 1 0 ]
+"237
+[v _UART_Read2 UART_Read2 `(uc  1 e 1 0 ]
 {
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 0 ]
-"245
+"284
 } 0
-"247
-[v _UART_Read UART_Read `(uc  1 e 1 0 ]
+"286
+[v _UART_Read1 UART_Read1 `(uc  1 e 1 0 ]
 {
-"279
+"287
+[v UART_Read1@count count `uc  1 a 1 31 ]
+"360
 } 0
-"319
+"400
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
 {
-"320
+"401
 [v lcdPrint@n n `i  1 a 2 7 ]
-"319
+"400
 [v lcdPrint@str str `*.26uc  1 p 2 2 ]
-"324
+"405
 } 0
-"298
+"379
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
 {
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@tipo tipo `uc  1 p 1 0 ]
-"302
+"383
 [v lcdSend@dato dato `uc  1 a 1 1 ]
-"317
+"398
 } 0
-"493
+"614
 [v _intToString intToString `(v  1 e 1 0 ]
 {
-"502
+"623
 [v intToString@t t `uc  1 a 1 25 ]
-"497
+"618
 [v intToString@i i `uc  1 a 1 27 ]
-"496
+"617
 [v intToString@cifre cifre `uc  1 a 1 26 ]
-"493
+"614
 [v intToString@n n `i  1 p 2 19 ]
 [v intToString@str str `*.4uc  1 p 1 21 ]
-"508
+"629
 } 0
-"485
+"606
 [v _potenza potenza `(uc  1 e 1 0 ]
 {
 [v potenza@b b `uc  1 a 1 wreg ]
-"487
+"608
 [v potenza@i i `i  1 a 2 7 ]
-"486
+"607
 [v potenza@n n `uc  1 a 1 9 ]
-"485
+"606
 [v potenza@b b `uc  1 a 1 wreg ]
 [v potenza@e e `uc  1 p 1 4 ]
 [v potenza@b b `uc  1 a 1 6 ]
-"491
+"612
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -265,42 +268,50 @@
 [v ___awdiv@dividend dividend `i  1 p 2 12 ]
 "41
 } 0
-"213 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
+"231 C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+{
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 0 ]
+"235
+} 0
+"221
+[v _RS485_TxEnable RS485_TxEnable `(v  1 e 1 0 ]
+{
+"224
+} 0
+"226
+[v _RS485_RxEnable RS485_RxEnable `(v  1 e 1 0 ]
 {
 "229
 } 0
-"378
+"203
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
+{
+"219
+} 0
+"499
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
 {
-"391
+"512
 } 0
-"231
-[v _RS485_TxEnable RS485_TxEnable `(v  1 e 1 0 ]
-{
-"234
-} 0
-"236
-[v _RS485_RxEnable RS485_RxEnable `(v  1 e 1 0 ]
-{
-"239
-} 0
-"403
+"524
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
 {
-"433
+"554
 } 0
-"393
+"514
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
 {
-"394
+"515
 [v GenerateRandomNumber@count count `ui  1 a 2 1 ]
-"398
+"519
 [v GenerateRandomNumber@randomNum randomNum `uc  1 a 1 0 ]
-"401
+"522
 } 0
-"326
+"407
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"376
+"497
 } 0
