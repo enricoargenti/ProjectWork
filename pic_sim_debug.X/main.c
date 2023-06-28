@@ -196,7 +196,7 @@ void main()
         RS485_RxEnable();
         flag = 1;
         UART_Read1();
-        //UART_Read2();
+        UART_Read2(); //legge char lentamente
     }
 }
 
@@ -235,6 +235,7 @@ void UART_Write(char data) {
 }
 
 char UART_Read2() {
+    char trash;
     while (countdown != 0){
         if (!RCIF){
             lcdSend(L_CLR, COMMAND);
@@ -243,35 +244,82 @@ char UART_Read2() {
             lcdSend(L_L2, COMMAND);
             lcdPrint(print_countdown);
             countdown --;
-            RCREG = 0x00;
             __delay_ms(60);
         }        
         else{
-            if(RCREG == id1){
-                RCIF = 0;
-                RCREG = 0x00;
-                while (!RCIF) // Wait for data to be received
-                continue;
-                if(RCREG == id2){
-                    RCIF = 0;
-                    RCREG = 0x00;
-                    lcdSend(L_CLR, COMMAND);
-                    lcdPrint("Ricevuto");
-                    if(RCREG == 0x33){
-                        __delay_ms(60);
-                        lcdSend(L_CLR, COMMAND);
-                        lcdPrint("Porta Aperta");
-                    }
-                    RCIF = 0;
-                    countdown = 60;        
-                    __delay_ms(200);
+            while (countdown != 0){
+                intToString(countdown, print_countdown);
+                lcdSend(L_L2, COMMAND);
+                lcdPrint(print_countdown);
+                countdown --;
+                __delay_ms(60);
+                if(RCREG == id1){
                     lcdSend(L_CLR, COMMAND);
                     lcdSend(RCREG, DATA);
-                    __delay_ms(200);
-                    return RCREG; // Return received data
+                    RCIF = 0;
+                    trash = RCREG;
+                    while (countdown != 0){
+                        if (!RCIF){ // Wait for data to be received
+                            intToString(countdown, print_countdown);
+                            lcdSend(L_L2, COMMAND);
+                            lcdPrint(print_countdown);
+                            countdown --;
+                            __delay_ms(60);
+                        }
+                        else{
+                            while (countdown != 0){
+                                intToString(countdown, print_countdown);
+                                lcdSend(L_L2, COMMAND);
+                                lcdPrint(print_countdown);
+                                countdown --;
+                                __delay_ms(60);
+                                if(RCREG == id2){
+                                    lcdSend(0x80 + 1, COMMAND);
+                                    lcdSend(RCREG, DATA);                
+                                    RCIF = 0;
+                                    trash = RCREG;
+                                    while (countdown != 0){
+                                        if (!RCIF){ // Wait for data to be received
+                                            intToString(countdown, print_countdown);
+                                            lcdSend(L_L2, COMMAND);
+                                            lcdPrint(print_countdown);
+                                            countdown --;
+                                            __delay_ms(60);
+                                        }
+                                        else{
+                                            while (countdown != 0){
+                                                intToString(countdown, print_countdown);
+                                                lcdSend(L_L2, COMMAND);
+                                                lcdPrint(print_countdown);
+                                                countdown --;
+                                                __delay_ms(60);
+                                                if(RCREG == 0x33){
+                                                    lcdSend(0x80 + 2, COMMAND);
+                                                    lcdSend(RCREG, DATA);                
+                                                    RCIF = 0;
+                                                    trash = RCREG;
+                                                    countdown = 60;        
+                                                    lcdSend(L_L2, COMMAND);
+                                                    lcdPrint("FATTA");
+                                                    __delay_ms(200);
+                                                    return RCREG; // Return received data
+                                                }
+                                                RCIF = 0;
+                                                trash = RCREG;
+                                            }
+                                        }
+                                    }
+                                }
+                                RCIF = 0;
+                                trash = RCREG;
+                            }
+                        }
+                    }
                 }
-            }
-        }      
+                RCIF = 0;
+                trash = RCREG;
+            }      
+        }
     }
     lcdSend(L_CLR, COMMAND);
     lcdPrint("Tempo Scaduto");
@@ -333,6 +381,7 @@ char UART_Read1() {
             RS485_TxEnable();
             UART_Write(id1);
             UART_Write(id2);
+            UART_Write(0x32);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);

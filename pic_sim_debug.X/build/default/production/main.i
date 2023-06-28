@@ -2208,7 +2208,7 @@ void main()
         RS485_RxEnable();
         flag = 1;
         UART_Read1();
-
+        UART_Read2();
     }
 }
 
@@ -2247,6 +2247,7 @@ void UART_Write(char data) {
 }
 
 char UART_Read2() {
+    char trash;
     while (countdown != 0){
         if (!RCIF){
             lcdSend(0x01, 0);
@@ -2255,33 +2256,80 @@ char UART_Read2() {
             lcdSend(0xC0, 0);
             lcdPrint(print_countdown);
             countdown --;
-            RCREG = 0x00;
             _delay((unsigned long)((60)*(20000000/4000.0)));
         }
         else{
-            if(RCREG == id1){
-                RCIF = 0;
-                RCREG = 0x00;
-                while (!RCIF)
-                continue;
-                if(RCREG == id2){
-                    RCIF = 0;
-                    RCREG = 0x00;
-                    lcdSend(0x01, 0);
-                    lcdPrint("Ricevuto");
-                    if(RCREG == 0x33){
-                        _delay((unsigned long)((60)*(20000000/4000.0)));
-                        lcdSend(0x01, 0);
-                        lcdPrint("Porta Aperta");
-                    }
-                    RCIF = 0;
-                    countdown = 60;
-                    _delay((unsigned long)((200)*(20000000/4000.0)));
+            while (countdown != 0){
+                intToString(countdown, print_countdown);
+                lcdSend(0xC0, 0);
+                lcdPrint(print_countdown);
+                countdown --;
+                _delay((unsigned long)((60)*(20000000/4000.0)));
+                if(RCREG == id1){
                     lcdSend(0x01, 0);
                     lcdSend(RCREG, 1);
-                    _delay((unsigned long)((200)*(20000000/4000.0)));
-                    return RCREG;
+                    RCIF = 0;
+                    trash = RCREG;
+                    while (countdown != 0){
+                        if (!RCIF){
+                            intToString(countdown, print_countdown);
+                            lcdSend(0xC0, 0);
+                            lcdPrint(print_countdown);
+                            countdown --;
+                            _delay((unsigned long)((60)*(20000000/4000.0)));
+                        }
+                        else{
+                            while (countdown != 0){
+                                intToString(countdown, print_countdown);
+                                lcdSend(0xC0, 0);
+                                lcdPrint(print_countdown);
+                                countdown --;
+                                _delay((unsigned long)((60)*(20000000/4000.0)));
+                                if(RCREG == id2){
+                                    lcdSend(0x80 + 1, 0);
+                                    lcdSend(RCREG, 1);
+                                    RCIF = 0;
+                                    trash = RCREG;
+                                    while (countdown != 0){
+                                        if (!RCIF){
+                                            intToString(countdown, print_countdown);
+                                            lcdSend(0xC0, 0);
+                                            lcdPrint(print_countdown);
+                                            countdown --;
+                                            _delay((unsigned long)((60)*(20000000/4000.0)));
+                                        }
+                                        else{
+                                            while (countdown != 0){
+                                                intToString(countdown, print_countdown);
+                                                lcdSend(0xC0, 0);
+                                                lcdPrint(print_countdown);
+                                                countdown --;
+                                                _delay((unsigned long)((60)*(20000000/4000.0)));
+                                                if(RCREG == 0x33){
+                                                    lcdSend(0x80 + 2, 0);
+                                                    lcdSend(RCREG, 1);
+                                                    RCIF = 0;
+                                                    trash = RCREG;
+                                                    countdown = 60;
+                                                    lcdSend(0xC0, 0);
+                                                    lcdPrint("FATTA");
+                                                    _delay((unsigned long)((200)*(20000000/4000.0)));
+                                                    return RCREG;
+                                                }
+                                                RCIF = 0;
+                                                trash = RCREG;
+                                            }
+                                        }
+                                    }
+                                }
+                                RCIF = 0;
+                                trash = RCREG;
+                            }
+                        }
+                    }
                 }
+                RCIF = 0;
+                trash = RCREG;
             }
         }
     }
@@ -2345,6 +2393,7 @@ char UART_Read1() {
             RS485_TxEnable();
             UART_Write(id1);
             UART_Write(id2);
+            UART_Write(0x32);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);
@@ -2564,7 +2613,7 @@ char KeyPadReader() {
     }
     while(1);
 }
-# 606 "main.c"
+# 655 "main.c"
 char potenza(char b, char e) {
     char n = 1;
     for (int i = 0; i < e; i++) {

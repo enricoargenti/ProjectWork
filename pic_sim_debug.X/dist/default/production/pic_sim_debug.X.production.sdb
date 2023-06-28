@@ -27,25 +27,27 @@
 [v _RS485_RxEnable RS485_RxEnable `(v  1 e 1 0 ]
 "231
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
-"286
+"237
+[v _UART_Read2 UART_Read2 `(uc  1 e 1 0 ]
+"334
 [v _UART_Read1 UART_Read1 `(uc  1 e 1 0 ]
-"362
+"411
 [v _initLCD initLCD `(v  1 e 1 0 ]
-"379
+"428
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
-"400
+"449
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
-"407
+"456
 [v _ISR ISR `II(v  1 e 1 0 ]
-"499
+"548
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
-"514
+"563
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
-"524
+"573
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
-"606
+"655
 [v _potenza potenza `(uc  1 e 1 0 ]
-"614
+"663
 [v _intToString intToString `(v  1 e 1 0 ]
 "59 C:/Users/GForlan/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f877a.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -53,13 +55,13 @@
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S101 . 1 `uc 1 RE0 1 0 :1:0 
+[s S105 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
 "414
-[u S105 . 1 `S101 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES105  1 e 1 @9 ]
+[u S109 . 1 `S105 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES109  1 e 1 @9 ]
 "1059
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1066
@@ -74,7 +76,7 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S112 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S116 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -84,8 +86,8 @@
 `uc 1 IBF 1 0 :1:7 
 ]
 "1578
-[u S121 . 1 `S112 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES121  1 e 1 @137 ]
+[u S125 . 1 `S116 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES125  1 e 1 @137 ]
 "2080
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2420
@@ -165,64 +167,69 @@
 {
 "201
 } 0
-"362
+"411
 [v _initLCD initLCD `(v  1 e 1 0 ]
 {
-"377
+"426
 } 0
-"286
+"237
+[v _UART_Read2 UART_Read2 `(uc  1 e 1 0 ]
+{
+"332
+} 0
+"334
 [v _UART_Read1 UART_Read1 `(uc  1 e 1 0 ]
 {
-"287
+"335
 [v UART_Read1@count count `uc  1 a 1 31 ]
-"360
+"409
 } 0
-"400
+"449
 [v _lcdPrint lcdPrint `(v  1 e 1 0 ]
 {
-"401
+"450
 [v lcdPrint@n n `i  1 a 2 7 ]
-"400
+"449
 [v lcdPrint@str str `*.26uc  1 p 2 2 ]
-"405
+"454
 } 0
-"379
+"428
 [v _lcdSend lcdSend `(v  1 e 1 0 ]
 {
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@dato dato `uc  1 a 1 wreg ]
 [v lcdSend@tipo tipo `uc  1 p 1 0 ]
-"383
+"432
 [v lcdSend@dato dato `uc  1 a 1 1 ]
-"398
+"447
 } 0
-"614
+"663
 [v _intToString intToString `(v  1 e 1 0 ]
 {
-"623
+"672
 [v intToString@t t `uc  1 a 1 25 ]
-"618
+"667
 [v intToString@i i `uc  1 a 1 27 ]
-"617
+"666
 [v intToString@cifre cifre `uc  1 a 1 26 ]
-"614
+"663
 [v intToString@n n `i  1 p 2 19 ]
 [v intToString@str str `*.4uc  1 p 1 21 ]
-"629
+"678
 } 0
-"606
+"655
 [v _potenza potenza `(uc  1 e 1 0 ]
 {
 [v potenza@b b `uc  1 a 1 wreg ]
-"608
+"657
 [v potenza@i i `i  1 a 2 7 ]
-"607
+"656
 [v potenza@n n `uc  1 a 1 9 ]
-"606
+"655
 [v potenza@b b `uc  1 a 1 wreg ]
 [v potenza@e e `uc  1 p 1 4 ]
 [v potenza@b b `uc  1 a 1 6 ]
-"612
+"661
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -284,27 +291,27 @@
 {
 "219
 } 0
-"499
+"548
 [v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
 {
-"512
+"561
 } 0
-"524
+"573
 [v _KeyPadReader KeyPadReader `(uc  1 e 1 0 ]
 {
-"554
+"603
 } 0
-"514
+"563
 [v _GenerateRandomNumber GenerateRandomNumber `(uc  1 e 1 0 ]
 {
-"515
+"564
 [v GenerateRandomNumber@count count `ui  1 a 2 1 ]
-"519
+"568
 [v GenerateRandomNumber@randomNum randomNum `uc  1 a 1 0 ]
-"522
+"571
 } 0
-"407
+"456
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"497
+"546
 } 0
