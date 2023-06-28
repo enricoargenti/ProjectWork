@@ -12,42 +12,42 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\pic_sim_debug.X.production.o
-cinit CODE 0 13 13 2B 2 1
+cinit CODE 0 13 13 1D 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 DA8 DA8 6E 2 1
-text2 CODE 0 344 344 21F 2 1
-text3 CODE 0 563 563 1EC 2 1
-text4 CODE 0 C9C C9C 48 2 1
-text5 CODE 0 C44 C44 15 2 1
-text6 CODE 0 E16 E16 7C 2 1
-text7 CODE 0 C70 C70 2C 2 1
-text8 CODE 0 7E1 7E1 17 2 1
-text9 CODE 0 CE4 CE4 5B 2 1
-text10 CODE 0 D3F D3F 69 2 1
-text11 CODE 0 C19 C19 A 2 1
-text12 CODE 0 C14 C14 5 2 1
-text13 CODE 0 C0F C0F 5 2 1
-text14 CODE 0 C32 C32 12 2 1
-text15 CODE 0 C23 C23 F 2 1
-text16 CODE 0 E92 E92 8D 2 1
-text17 CODE 0 C59 C59 17 2 1
-text18 CODE 0 F1F F1F E1 2 1
-idataCOMMON CODE 0 3 3 1 2 1
-maintext CODE 0 3E 3E 306 2 1
+text1 CODE 0 E89 E89 6E 2 1
+text2 CODE 0 54A 54A 1A2 2 1
+text3 CODE 0 330 330 21A 2 1
+text4 CODE 0 D7D D7D 48 2 1
+text5 CODE 0 D3A D3A 15 2 1
+text6 CODE 0 EF7 EF7 7C 2 1
+text7 CODE 0 7CD 7CD 2C 2 1
+text8 CODE 0 D66 D66 17 2 1
+text9 CODE 0 DC5 DC5 5B 2 1
+text10 CODE 0 E20 E20 69 2 1
+text11 CODE 0 D0F D0F A 2 1
+text12 CODE 0 7F9 7F9 5 2 1
+text13 CODE 0 D02 D02 5 2 1
+text14 CODE 0 D28 D28 12 2 1
+text15 CODE 0 D19 D19 F 2 1
+text16 CODE 0 F73 F73 8D 2 1
+text17 CODE 0 D4F D4F 17 2 1
+text18 CODE 0 6EC 6EC E1 2 1
+idataCOMMON CODE 0 7FE 7FE 1 2 1
+maintext CODE 0 30 30 300 2 1
 cstackCOMMON COMMON 1 70 70 5 1 1
-cstackBANK0 BANK0 1 43 43 20 1 1
+cstackBANK0 BANK0 1 53 53 1C 1 1
+cstackBANK1 BANK1 1 A0 A0 4 1 1
 intentry CODE 0 4 4 C 2 1
 bitbssCOMMON COMMON 1 3C0 78 1 1 1
-bssBANK0 BANK0 1 20 20 23 1 1
-bssBANK1 BANK1 1 A0 A0 10 1 1
-idataBANK0 CODE 0 C0D C0D 2 2 1
-strings STRING 0 74F 74F 92 2 1
-dataBANK0 BANK0 1 63 63 2 1 1
+bssBANK0 BANK0 1 20 20 33 1 1
+idataBANK0 CODE 0 7FF 7FF 1 2 1
+strings STRING 0 800 800 97 2 1
+dataBANK0 BANK0 1 6F 6F 1 1 1
 dataCOMMON COMMON 1 79 79 1 1 1
-clrtext CODE 0 7F8 7F8 8 2 1
+clrtext CODE 0 D07 D07 8 2 1
 bssCOMMON COMMON 1 75 75 3 1 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
+$C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
 idloc IDLOC 5 2000 2000 4 2 1
 reset_vec CODE 0 0 0 3 2 1
 end_init CODE 0 10 10 3 2 1
@@ -58,19 +58,20 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 65-6F 1
-RAM B0-EF 1
+RAM A4-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 65-6F 1
-BANK1 B0-EF 1
+BANK1 A4-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 800-C0C 2
+CONST 3-3 2
+CONST 897-D01 2
 CONST 1000-1FFF 2
-ENTRY 800-C0C 2
+ENTRY 3-3 2
+ENTRY 897-D01 2
 ENTRY 1000-1FFF 2
-CODE 800-C0C 2
+CODE 3-3 2
+CODE 897-D01 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -78,9 +79,11 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 7A-7D 1
 EEDATA 2100-21FF 2
-STRCODE 800-C0C 2
+STRCODE 3-3 2
+STRCODE 897-D01 2
 STRCODE 1000-1FFF 2
-STRING 800-C0C 2
+STRING 3-3 2
+STRING 897-D01 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -96,543 +99,512 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\pic_sim_debug.X.production.o
-13 cinit CODE >690:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-13 cinit CODE >693:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-13 cinit CODE >805:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-18 cinit CODE >806:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-19 cinit CODE >807:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-1E cinit CODE >808:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-1F cinit CODE >812:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-24 cinit CODE >813:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-25 cinit CODE >832:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-26 cinit CODE >833:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-27 cinit CODE >834:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-28 cinit CODE >835:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-29 cinit CODE >836:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-2E cinit CODE >839:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-2F cinit CODE >840:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-30 cinit CODE >841:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-31 cinit CODE >842:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-36 cinit CODE >845:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-37 cinit CODE >846:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-38 cinit CODE >847:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-39 cinit CODE >850:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-3A cinit CODE >856:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-3A cinit CODE >858:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-3B cinit CODE >859:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
+13 cinit CODE >691:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+13 cinit CODE >694:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+13 cinit CODE >797:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+18 cinit CODE >798:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+19 cinit CODE >802:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+1E cinit CODE >803:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+1F cinit CODE >822:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+20 cinit CODE >823:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+21 cinit CODE >824:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+22 cinit CODE >825:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+23 cinit CODE >826:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+28 cinit CODE >829:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+29 cinit CODE >830:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+2A cinit CODE >831:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+2B cinit CODE >834:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+2C cinit CODE >840:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+2C cinit CODE >842:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+2D cinit CODE >843:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
 4 intentry CODE >456:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F1F text18 CODE >456:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F1F text18 CODE >457:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F1F text18 CODE >459:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F23 text18 CODE >460:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F24 text18 CODE >461:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F24 text18 CODE >463:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F28 text18 CODE >464:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F29 text18 CODE >465:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F29 text18 CODE >467:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F2D text18 CODE >468:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F2E text18 CODE >469:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F2E text18 CODE >471:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F32 text18 CODE >472:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F33 text18 CODE >473:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F33 text18 CODE >475:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F37 text18 CODE >476:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F38 text18 CODE >477:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F38 text18 CODE >479:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F3C text18 CODE >480:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F3D text18 CODE >481:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F3D text18 CODE >483:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F41 text18 CODE >484:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F42 text18 CODE >485:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F42 text18 CODE >487:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F46 text18 CODE >488:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F47 text18 CODE >489:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F47 text18 CODE >491:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F4B text18 CODE >492:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F4C text18 CODE >493:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F4C text18 CODE >495:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F50 text18 CODE >496:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F51 text18 CODE >497:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F51 text18 CODE >499:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F55 text18 CODE >500:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F56 text18 CODE >501:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F56 text18 CODE >503:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F5A text18 CODE >504:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F5B text18 CODE >505:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F5B text18 CODE >507:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F5F text18 CODE >508:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F60 text18 CODE >509:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F60 text18 CODE >511:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F64 text18 CODE >512:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F65 text18 CODE >513:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F65 text18 CODE >515:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F69 text18 CODE >516:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F6A text18 CODE >517:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F72 text18 CODE >518:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F78 text18 CODE >520:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F7B text18 CODE >520:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F80 text18 CODE >521:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F84 text18 CODE >522:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F8F text18 CODE >525:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F92 text18 CODE >525:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F97 text18 CODE >526:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FA8 text18 CODE >527:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FA9 text18 CODE >528:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FAD text18 CODE >530:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FBE text18 CODE >532:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FCF text18 CODE >533:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FD0 text18 CODE >536:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FD2 text18 CODE >536:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FD6 text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FD9 text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FDC text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FE1 text18 CODE >540:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FE3 text18 CODE >542:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FE9 text18 CODE >542:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FED text18 CODE >543:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FF2 text18 CODE >544:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-FF5 text18 CODE >546:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C59 text17 CODE >563:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C59 text17 CODE >564:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C5D text17 CODE >565:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C5E text17 CODE >566:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C60 text17 CODE >566:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C64 text17 CODE >565:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C6B text17 CODE >568:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C6D text17 CODE >569:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C6E text17 CODE >570:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C6F text17 CODE >571:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E92 text16 CODE >573:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E92 text16 CODE >574:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E9A text16 CODE >577:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E9D text16 CODE >577:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EA2 text16 CODE >578:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EA7 text16 CODE >579:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EB2 text16 CODE >582:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EB5 text16 CODE >582:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EBA text16 CODE >583:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-ECB text16 CODE >584:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-ECC text16 CODE >585:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-ED0 text16 CODE >587:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EE1 text16 CODE >588:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EEC text16 CODE >589:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-EFF text16 CODE >590:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F00 text16 CODE >593:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F02 text16 CODE >593:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F06 text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F09 text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F0C text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F11 text16 CODE >597:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F14 text16 CODE >600:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F19 text16 CODE >601:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F1E text16 CODE >603:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C23 text15 CODE >548:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C23 text15 CODE >550:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C26 text15 CODE >551:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C27 text15 CODE >552:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C28 text15 CODE >553:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C29 text15 CODE >554:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C2A text15 CODE >557:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C2E text15 CODE >558:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C2F text15 CODE >559:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C30 text15 CODE >560:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C31 text15 CODE >561:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C32 text14 CODE >203:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C32 text14 CODE >205:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C35 text14 CODE >206:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C36 text14 CODE >209:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C37 text14 CODE >210:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C39 text14 CODE >213:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C3A text14 CODE >214:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C3D text14 CODE >217:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C40 text14 CODE >218:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C43 text14 CODE >219:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C0F text13 CODE >226:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C0F text13 CODE >227:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C12 text13 CODE >228:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C13 text13 CODE >229:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C14 text12 CODE >221:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C14 text12 CODE >222:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C17 text12 CODE >223:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C18 text12 CODE >224:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C19 text11 CODE >231:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C1C text11 CODE >232:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C1C text11 CODE >233:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C20 text11 CODE >234:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C22 text11 CODE >235:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-D3F text10 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D3F text10 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D42 text10 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D46 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D49 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D4B text10 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D4D text10 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D51 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D54 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D56 text10 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D5A text10 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D5C text10 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D62 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D64 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D65 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D66 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D6A text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D6C text10 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D70 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D74 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D75 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D79 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D7B text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D7D text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D81 text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D85 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D88 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D8B text10 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D8C text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D8D text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D91 text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D93 text10 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D99 text10 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-D9E text10 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-DA1 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-DA3 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-DA7 text10 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-CE4 text9 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CE4 text9 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CE7 text9 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CEB text9 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CEE text9 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CF0 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CF2 text9 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CF6 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CF9 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CFB text9 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D01 text9 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D03 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D04 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D05 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D09 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D0B text9 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D0F text9 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D13 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D15 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D19 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D1D text9 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D20 text9 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D23 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D24 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D28 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D2A text9 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D30 text9 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D35 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D38 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D3A text9 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D3E text9 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-7E1 text8 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7E4 text8 CODE >6:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7E5 text8 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7E9 text8 CODE >44:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7ED text8 CODE >45:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7EF text8 CODE >46:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7F1 text8 CODE >47:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7F6 text8 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-7F7 text8 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
-C70 text7 CODE >655:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C73 text7 CODE >656:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C75 text7 CODE >657:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C78 text7 CODE >658:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C85 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C87 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C90 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C94 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C98 text7 CODE >660:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C9B text7 CODE >661:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E16 text6 CODE >663:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E16 text6 CODE >666:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E1A text6 CODE >667:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E1A text6 CODE >669:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E40 text6 CODE >671:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E42 text6 CODE >672:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E4F text6 CODE >673:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E6A text6 CODE >674:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E80 text6 CODE >675:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E86 text6 CODE >675:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E8A text6 CODE >677:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E91 text6 CODE >678:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C44 text5 CODE >428:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C47 text5 CODE >432:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C4A text5 CODE >433:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C4B text5 CODE >434:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C4C text5 CODE >439:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C4F text5 CODE >441:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C51 text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C52 text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C54 text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C56 text5 CODE >444:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C57 text5 CODE >446:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C58 text5 CODE >447:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C9C text4 CODE >449:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C9C text4 CODE >450:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CA0 text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CA1 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CA8 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CC3 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CC7 text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CCC text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CDF text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CE3 text4 CODE >454:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-563 text3 CODE >334:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-563 text3 CODE >335:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-566 text3 CODE >336:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-568 text3 CODE >337:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-569 text3 CODE >338:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-571 text3 CODE >339:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-57B text3 CODE >340:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-582 text3 CODE >341:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-593 text3 CODE >342:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-59E text3 CODE >343:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-59F text3 CODE >344:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5A3 text3 CODE >346:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5AD text3 CODE >347:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5B5 text3 CODE >348:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5C6 text3 CODE >349:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5D1 text3 CODE >350:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5D2 text3 CODE >351:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5D6 text3 CODE >353:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5E1 text3 CODE >354:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5E9 text3 CODE >355:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5FA text3 CODE >356:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-605 text3 CODE >357:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-606 text3 CODE >358:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-60A text3 CODE >360:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-615 text3 CODE >361:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-61D text3 CODE >362:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-62E text3 CODE >363:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-639 text3 CODE >364:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-63A text3 CODE >365:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-63E text3 CODE >367:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-649 text3 CODE >368:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-651 text3 CODE >369:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-662 text3 CODE >370:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-66D text3 CODE >371:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-66E text3 CODE >372:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-672 text3 CODE >374:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-680 text3 CODE >375:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-689 text3 CODE >376:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-694 text3 CODE >377:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-696 text3 CODE >378:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6A5 text3 CODE >379:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6A6 text3 CODE >381:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6AB text3 CODE >382:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6B1 text3 CODE >383:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6B7 text3 CODE >384:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6BD text3 CODE >385:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6C5 text3 CODE >386:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6CD text3 CODE >387:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6D5 text3 CODE >388:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6DD text3 CODE >389:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6E5 text3 CODE >390:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6EB text3 CODE >391:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6F1 text3 CODE >392:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6F6 text3 CODE >393:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6FF text3 CODE >394:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-70A text3 CODE >395:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-70D text3 CODE >396:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-70F text3 CODE >397:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-71D text3 CODE >398:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-721 text3 CODE >337:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-726 text3 CODE >401:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-72F text3 CODE >402:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-73A text3 CODE >403:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-73D text3 CODE >404:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-73F text3 CODE >405:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-74E text3 CODE >409:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-344 text2 CODE >237:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-344 text2 CODE >239:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-345 text2 CODE >240:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-34B text2 CODE >241:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-352 text2 CODE >242:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-35D text2 CODE >243:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-36D text2 CODE >244:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-376 text2 CODE >245:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-381 text2 CODE >246:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-383 text2 CODE >247:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-392 text2 CODE >248:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-393 text2 CODE >251:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3A1 text2 CODE >252:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3AA text2 CODE >253:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3B5 text2 CODE >254:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3B7 text2 CODE >255:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3C6 text2 CODE >256:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3CE text2 CODE >257:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3D5 text2 CODE >258:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3DF text2 CODE >259:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3E2 text2 CODE >260:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3E3 text2 CODE >261:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3E4 text2 CODE >262:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3EA text2 CODE >263:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3F8 text2 CODE >264:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-401 text2 CODE >265:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-40C text2 CODE >266:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-40E text2 CODE >267:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-41D text2 CODE >268:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-41E text2 CODE >271:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-42C text2 CODE >272:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-435 text2 CODE >273:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-440 text2 CODE >274:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-442 text2 CODE >275:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-451 text2 CODE >276:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-459 text2 CODE >277:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-460 text2 CODE >278:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-46A text2 CODE >279:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-46D text2 CODE >280:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-46E text2 CODE >281:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-46F text2 CODE >282:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-475 text2 CODE >283:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-483 text2 CODE >284:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-48C text2 CODE >285:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-497 text2 CODE >286:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-499 text2 CODE >287:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4A8 text2 CODE >288:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4A9 text2 CODE >291:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4B7 text2 CODE >292:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4C0 text2 CODE >293:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4CB text2 CODE >294:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4CD text2 CODE >295:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4DC text2 CODE >296:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4E4 text2 CODE >297:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4EB text2 CODE >298:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4F5 text2 CODE >299:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4F8 text2 CODE >300:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4F9 text2 CODE >301:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4FB text2 CODE >302:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-502 text2 CODE >303:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-50D text2 CODE >304:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-51B text2 CODE >305:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-51F text2 CODE >306:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-51F text2 CODE >307:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-520 text2 CODE >308:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-521 text2 CODE >290:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-526 text2 CODE >281:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-52B text2 CODE >312:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-52B text2 CODE >313:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-52E text2 CODE >314:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-52F text2 CODE >270:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-534 text2 CODE >261:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-539 text2 CODE >318:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-539 text2 CODE >319:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-53C text2 CODE >320:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-53D text2 CODE >250:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-543 text2 CODE >239:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-548 text2 CODE >324:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-551 text2 CODE >325:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-55C text2 CODE >326:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-55F text2 CODE >327:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-562 text2 CODE >332:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DA8 text1 CODE >411:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DA8 text1 CODE >412:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DAB text1 CODE >413:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DAC text1 CODE >414:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DB6 text1 CODE >415:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DB9 text1 CODE >416:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DC0 text1 CODE >417:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DCB text1 CODE >418:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DD4 text1 CODE >419:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DDF text1 CODE >420:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DE8 text1 CODE >421:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DF1 text1 CODE >422:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DFA text1 CODE >423:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E03 text1 CODE >424:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E0C text1 CODE >425:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E15 text1 CODE >426:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3E maintext CODE >107:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-3E maintext CODE >109:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-41 maintext CODE >110:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-42 maintext CODE >111:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-43 maintext CODE >112:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-44 maintext CODE >113:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-45 maintext CODE >114:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4A maintext CODE >115:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-4F maintext CODE >116:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-54 maintext CODE >119:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-5D maintext CODE >120:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-68 maintext CODE >121:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-6D maintext CODE >122:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-73 maintext CODE >123:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-79 maintext CODE >124:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-7F maintext CODE >125:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-85 maintext CODE >126:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-8B maintext CODE >127:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-91 maintext CODE >128:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-97 maintext CODE >129:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-9D maintext CODE >130:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-A3 maintext CODE >131:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-AB maintext CODE >132:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-B3 maintext CODE >133:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-BB maintext CODE >134:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-C3 maintext CODE >135:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CB maintext CODE >136:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-CC maintext CODE >138:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-D1 maintext CODE >139:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-DC maintext CODE >139:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E1 maintext CODE >136:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-E6 maintext CODE >143:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-ED maintext CODE >144:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F8 maintext CODE >145:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-F9 maintext CODE >148:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-101 maintext CODE >145:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-13F maintext CODE >150:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-146 maintext CODE >151:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-151 maintext CODE >152:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-152 maintext CODE >155:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-15A maintext CODE >152:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-198 maintext CODE >157:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-19F maintext CODE >158:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-1AA maintext CODE >159:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-1AB maintext CODE >162:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-1B3 maintext CODE >159:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-1F1 maintext CODE >164:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-1F8 maintext CODE >165:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-203 maintext CODE >166:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-204 maintext CODE >169:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-20C maintext CODE >166:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-24A maintext CODE >171:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-251 maintext CODE >172:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-25C maintext CODE >173:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-25D maintext CODE >176:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-265 maintext CODE >173:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2A3 maintext CODE >178:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2A9 maintext CODE >179:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2AF maintext CODE >180:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2B3 maintext CODE >181:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2B9 maintext CODE >182:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2C1 maintext CODE >183:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2C9 maintext CODE >184:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2D1 maintext CODE >185:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2D9 maintext CODE >186:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2E1 maintext CODE >187:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2E7 maintext CODE >188:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2ED maintext CODE >189:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-2F6 maintext CODE >190:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-300 maintext CODE >191:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-30A maintext CODE >192:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-314 maintext CODE >193:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-31E maintext CODE >194:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-328 maintext CODE >195:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-32B maintext CODE >196:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-330 maintext CODE >197:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-336 maintext CODE >198:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-33B maintext CODE >199:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
-7F8 clrtext CODE >819:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7F8 clrtext CODE >820:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7F9 clrtext CODE >821:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7F9 clrtext CODE >822:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FA clrtext CODE >823:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FB clrtext CODE >824:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FC clrtext CODE >825:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FD clrtext CODE >826:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FE clrtext CODE >827:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
-7FF clrtext CODE >828:C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.s
+6EC text18 CODE >456:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6EC text18 CODE >457:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6EC text18 CODE >459:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F0 text18 CODE >460:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F1 text18 CODE >461:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F1 text18 CODE >463:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F5 text18 CODE >464:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F6 text18 CODE >465:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6F6 text18 CODE >467:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6FA text18 CODE >468:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6FB text18 CODE >469:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6FB text18 CODE >471:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6FF text18 CODE >472:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+700 text18 CODE >473:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+700 text18 CODE >475:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+704 text18 CODE >476:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+705 text18 CODE >477:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+705 text18 CODE >479:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+709 text18 CODE >480:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+70A text18 CODE >481:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+70A text18 CODE >483:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+70E text18 CODE >484:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+70F text18 CODE >485:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+70F text18 CODE >487:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+713 text18 CODE >488:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+714 text18 CODE >489:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+714 text18 CODE >491:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+718 text18 CODE >492:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+719 text18 CODE >493:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+719 text18 CODE >495:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+71D text18 CODE >496:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+71E text18 CODE >497:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+71E text18 CODE >499:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+722 text18 CODE >500:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+723 text18 CODE >501:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+723 text18 CODE >503:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+727 text18 CODE >504:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+728 text18 CODE >505:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+728 text18 CODE >507:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+72C text18 CODE >508:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+72D text18 CODE >509:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+72D text18 CODE >511:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+731 text18 CODE >512:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+732 text18 CODE >513:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+732 text18 CODE >515:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+736 text18 CODE >516:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+737 text18 CODE >517:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+73F text18 CODE >518:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+745 text18 CODE >520:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+748 text18 CODE >520:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+74D text18 CODE >521:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+751 text18 CODE >522:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+75C text18 CODE >525:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+75F text18 CODE >525:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+764 text18 CODE >526:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+775 text18 CODE >527:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+776 text18 CODE >528:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+77A text18 CODE >530:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+78B text18 CODE >532:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+79C text18 CODE >533:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+79D text18 CODE >536:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+79F text18 CODE >536:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7A3 text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7A6 text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7A9 text18 CODE >537:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7AE text18 CODE >540:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7B0 text18 CODE >542:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7B6 text18 CODE >542:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7BA text18 CODE >543:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7BF text18 CODE >544:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7C2 text18 CODE >546:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4F text17 CODE >563:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4F text17 CODE >564:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D53 text17 CODE >565:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D54 text17 CODE >566:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D56 text17 CODE >566:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D5A text17 CODE >565:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D61 text17 CODE >568:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D63 text17 CODE >569:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D64 text17 CODE >570:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D65 text17 CODE >571:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F73 text16 CODE >573:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F73 text16 CODE >574:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F7B text16 CODE >577:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F7E text16 CODE >577:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F83 text16 CODE >578:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F88 text16 CODE >579:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F93 text16 CODE >582:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F96 text16 CODE >582:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F9B text16 CODE >583:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FAC text16 CODE >584:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FAD text16 CODE >585:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FB1 text16 CODE >587:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FC2 text16 CODE >588:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FCD text16 CODE >589:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FE0 text16 CODE >590:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FE1 text16 CODE >593:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FE3 text16 CODE >593:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FE7 text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FEA text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FED text16 CODE >594:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FF2 text16 CODE >597:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FF5 text16 CODE >600:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FFA text16 CODE >601:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+FFF text16 CODE >603:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D19 text15 CODE >548:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D19 text15 CODE >550:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D1C text15 CODE >551:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D1D text15 CODE >552:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D1E text15 CODE >553:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D1F text15 CODE >554:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D20 text15 CODE >557:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D24 text15 CODE >558:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D25 text15 CODE >559:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D26 text15 CODE >560:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D27 text15 CODE >561:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D28 text14 CODE >203:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D28 text14 CODE >205:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D2B text14 CODE >206:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D2C text14 CODE >209:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D2D text14 CODE >210:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D2F text14 CODE >213:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D30 text14 CODE >214:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D33 text14 CODE >217:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D36 text14 CODE >218:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D39 text14 CODE >219:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D02 text13 CODE >226:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D02 text13 CODE >227:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D05 text13 CODE >228:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D06 text13 CODE >229:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7F9 text12 CODE >221:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7F9 text12 CODE >222:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7FC text12 CODE >223:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7FD text12 CODE >224:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D0F text11 CODE >231:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D12 text11 CODE >232:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D12 text11 CODE >233:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D16 text11 CODE >234:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D18 text11 CODE >235:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E20 text10 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E20 text10 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E23 text10 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E27 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E2A text10 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E2C text10 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E2E text10 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E32 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E35 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E37 text10 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E3B text10 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E3D text10 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E43 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E45 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E46 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E47 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E4B text10 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E4D text10 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E51 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E55 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E56 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E5A text10 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E5C text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E5E text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E62 text10 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E66 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E69 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E6C text10 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E6D text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E6E text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E72 text10 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E74 text10 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E7A text10 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E7F text10 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E82 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E84 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E88 text10 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+DC5 text9 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DC5 text9 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DC8 text9 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DCC text9 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DCF text9 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DD1 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DD3 text9 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DD7 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DDA text9 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DDC text9 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DE2 text9 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DE4 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DE5 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DE6 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DEA text9 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DEC text9 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DF0 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DF4 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DF6 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DFA text9 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+DFE text9 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E01 text9 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E04 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E05 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E09 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E0B text9 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E11 text9 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E16 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E19 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E1B text9 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+E1F text9 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+D66 text8 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D69 text8 CODE >6:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D6A text8 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D6E text8 CODE >44:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D72 text8 CODE >45:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D74 text8 CODE >46:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D76 text8 CODE >47:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D7B text8 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+D7C text8 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+7CD text7 CODE >655:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7D0 text7 CODE >656:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7D2 text7 CODE >657:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7D5 text7 CODE >658:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7E2 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7E4 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7ED text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7F1 text7 CODE >659:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7F5 text7 CODE >660:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7F8 text7 CODE >661:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EF7 text6 CODE >663:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EF7 text6 CODE >666:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EFB text6 CODE >667:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EFB text6 CODE >669:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F21 text6 CODE >671:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F23 text6 CODE >672:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F30 text6 CODE >673:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F4B text6 CODE >674:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F61 text6 CODE >675:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F67 text6 CODE >675:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F6B text6 CODE >677:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F72 text6 CODE >678:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D3A text5 CODE >428:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D3D text5 CODE >432:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D40 text5 CODE >433:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D41 text5 CODE >434:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D42 text5 CODE >439:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D45 text5 CODE >441:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D47 text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D48 text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4A text5 CODE >442:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4C text5 CODE >444:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4D text5 CODE >446:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D4E text5 CODE >447:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D7D text4 CODE >449:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D7D text4 CODE >450:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D81 text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D82 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D89 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DA4 text4 CODE >452:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DA8 text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DAD text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DC0 text4 CODE >451:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DC4 text4 CODE >454:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+330 text3 CODE >334:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+330 text3 CODE >335:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+333 text3 CODE >336:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+335 text3 CODE >337:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+336 text3 CODE >338:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+33E text3 CODE >339:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+34C text3 CODE >340:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+355 text3 CODE >341:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+366 text3 CODE >342:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+371 text3 CODE >343:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+372 text3 CODE >344:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+378 text3 CODE >346:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+385 text3 CODE >347:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+391 text3 CODE >348:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3A2 text3 CODE >349:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3AD text3 CODE >350:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3AE text3 CODE >351:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3B4 text3 CODE >353:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3C2 text3 CODE >354:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3CE text3 CODE >355:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3DF text3 CODE >356:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3EA text3 CODE >357:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3EB text3 CODE >358:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3F1 text3 CODE >360:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3FF text3 CODE >361:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+40B text3 CODE >362:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+41C text3 CODE >363:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+427 text3 CODE >364:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+428 text3 CODE >365:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+42E text3 CODE >367:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+43C text3 CODE >368:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+448 text3 CODE >369:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+459 text3 CODE >370:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+464 text3 CODE >371:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+465 text3 CODE >372:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+46B text3 CODE >374:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+481 text3 CODE >375:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+48A text3 CODE >376:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+495 text3 CODE >377:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+497 text3 CODE >378:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4A6 text3 CODE >379:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4A7 text3 CODE >381:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4AC text3 CODE >382:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4B2 text3 CODE >384:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4B8 text3 CODE >385:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4C0 text3 CODE >386:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4C8 text3 CODE >387:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4D0 text3 CODE >388:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4D8 text3 CODE >389:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4E0 text3 CODE >390:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4E6 text3 CODE >391:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4EC text3 CODE >392:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4F1 text3 CODE >393:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4FA text3 CODE >394:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+505 text3 CODE >395:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+508 text3 CODE >396:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+50A text3 CODE >397:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+518 text3 CODE >398:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+51C text3 CODE >337:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+521 text3 CODE >401:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+52A text3 CODE >402:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+535 text3 CODE >403:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+538 text3 CODE >404:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+53A text3 CODE >405:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+549 text3 CODE >409:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+54A text2 CODE >237:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+54A text2 CODE >239:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+54B text2 CODE >240:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+551 text2 CODE >241:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+558 text2 CODE >242:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+563 text2 CODE >243:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+579 text2 CODE >244:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+582 text2 CODE >245:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+58D text2 CODE >246:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+58F text2 CODE >247:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+59E text2 CODE >248:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+59F text2 CODE >251:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5B5 text2 CODE >252:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5BE text2 CODE >253:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5C9 text2 CODE >254:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5CB text2 CODE >255:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5DA text2 CODE >256:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5E1 text2 CODE >257:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5E8 text2 CODE >258:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5F2 text2 CODE >259:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5F5 text2 CODE >260:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5F6 text2 CODE >261:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5F7 text2 CODE >262:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5FD text2 CODE >263:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+613 text2 CODE >264:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+61C text2 CODE >265:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+627 text2 CODE >266:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+629 text2 CODE >267:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+638 text2 CODE >268:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+639 text2 CODE >271:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+64F text2 CODE >272:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+658 text2 CODE >273:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+663 text2 CODE >274:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+665 text2 CODE >275:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+674 text2 CODE >276:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+67B text2 CODE >277:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+682 text2 CODE >278:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+68C text2 CODE >279:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+68F text2 CODE >280:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+690 text2 CODE >281:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+692 text2 CODE >282:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+699 text2 CODE >283:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6A4 text2 CODE >284:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B2 text2 CODE >285:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B6 text2 CODE >286:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B6 text2 CODE >313:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B7 text2 CODE >314:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B8 text2 CODE >270:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6BD text2 CODE >261:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6C2 text2 CODE >318:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6C2 text2 CODE >319:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6C5 text2 CODE >320:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6C6 text2 CODE >250:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6CC text2 CODE >239:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6D1 text2 CODE >324:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6DA text2 CODE >325:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6E5 text2 CODE >326:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6E8 text2 CODE >327:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6EB text2 CODE >332:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E89 text1 CODE >411:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E89 text1 CODE >412:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E8C text1 CODE >413:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E8D text1 CODE >414:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E97 text1 CODE >415:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+E9A text1 CODE >416:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EA1 text1 CODE >417:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EAC text1 CODE >418:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EB5 text1 CODE >419:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EC0 text1 CODE >420:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EC9 text1 CODE >421:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+ED2 text1 CODE >422:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EDB text1 CODE >423:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EE4 text1 CODE >424:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EED text1 CODE >425:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EF6 text1 CODE >426:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+30 maintext CODE >107:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+30 maintext CODE >109:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+33 maintext CODE >110:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+34 maintext CODE >111:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+35 maintext CODE >112:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+36 maintext CODE >113:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+37 maintext CODE >114:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+3C maintext CODE >115:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+41 maintext CODE >116:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+46 maintext CODE >119:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+4F maintext CODE >120:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5A maintext CODE >121:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+5F maintext CODE >122:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+65 maintext CODE >123:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+6B maintext CODE >124:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+71 maintext CODE >125:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+77 maintext CODE >126:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+7D maintext CODE >127:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+83 maintext CODE >128:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+89 maintext CODE >129:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+8F maintext CODE >130:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+95 maintext CODE >131:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+9D maintext CODE >132:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+A5 maintext CODE >133:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+AD maintext CODE >134:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+B5 maintext CODE >135:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+BD maintext CODE >136:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+BE maintext CODE >138:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+C3 maintext CODE >139:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+CE maintext CODE >139:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D3 maintext CODE >136:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D8 maintext CODE >143:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+DF maintext CODE >144:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EA maintext CODE >145:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+EB maintext CODE >148:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+F3 maintext CODE >145:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+131 maintext CODE >150:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+138 maintext CODE >151:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+143 maintext CODE >152:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+144 maintext CODE >155:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+14C maintext CODE >152:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+18A maintext CODE >157:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+191 maintext CODE >158:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+19C maintext CODE >159:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+19D maintext CODE >162:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1A5 maintext CODE >159:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1E3 maintext CODE >164:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1EA maintext CODE >165:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1F5 maintext CODE >166:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1F6 maintext CODE >169:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+1FE maintext CODE >166:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+23C maintext CODE >171:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+243 maintext CODE >172:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+24E maintext CODE >173:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+24F maintext CODE >176:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+257 maintext CODE >173:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+295 maintext CODE >178:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+29B maintext CODE >180:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+29F maintext CODE >181:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2A5 maintext CODE >182:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2AD maintext CODE >183:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2B5 maintext CODE >184:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2BD maintext CODE >185:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2C5 maintext CODE >186:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2CD maintext CODE >187:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2D3 maintext CODE >188:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2D9 maintext CODE >189:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2E2 maintext CODE >190:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2EC maintext CODE >191:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+2F6 maintext CODE >192:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+300 maintext CODE >193:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+30A maintext CODE >194:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+314 maintext CODE >195:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+317 maintext CODE >196:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+31C maintext CODE >197:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+322 maintext CODE >198:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+327 maintext CODE >199:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
+D07 clrtext CODE >809:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D07 clrtext CODE >810:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D08 clrtext CODE >811:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D08 clrtext CODE >812:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D09 clrtext CODE >813:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D0A clrtext CODE >814:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D0B clrtext CODE >815:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D0C clrtext CODE >816:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D0D clrtext CODE >817:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
+D0E clrtext CODE >818:C:\Users\GForlan\AppData\Local\Temp\xcAs34o.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -646,7 +618,7 @@ F9 maintext CODE >148:C:\Users\GForlan\MPLABXProjects\pic_sim_debug.X\main.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-___awdiv@counter 52 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+___awdiv@counter 62 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
 __Hspace_0 1000 0 ABS 0 - -
 __Hspace_1 3C1 0 ABS 0 - -
@@ -655,7 +627,7 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-GenerateRandomNumber@randomNum 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+GenerateRandomNumber@randomNum 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _BRGH 4C2 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _CREN C4 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
@@ -666,86 +638,87 @@ _SYNC 4C4 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TXEN 4C5 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-_flag 30 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_keys EBE 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
-_main 7C 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
-_num1 3F 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_num2 3E 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_num3 3D 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_num4 3C 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_num5 3B 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-_type 34 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+_flag 40 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_keys 1020 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+_main 60 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
+_num1 4F 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_num2 4E 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_num3 4D 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_num4 4C 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_num5 4B 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_type 44 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-start 20 0 CODE 0 init C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
+start 20 0 CODE 0 init C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 __pbitbssCOMMON 3C0 -348 COMMON 1 bitbssCOMMON dist/default/production\pic_sim_debug.X.production.o
-___awmod@sign 49 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_rowMask EDE 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+___awmod@sign 59 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_rowMask 1040 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-lcdSend@dato 44 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-lcdSend@tipo 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+lcdSend@dato 54 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+lcdSend@tipo 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-___bmul@multiplicand 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+___bmul@multiplicand 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-_UART_Read1 AC6 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
-_UART_Read2 688 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
+_UART_Read1 660 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
+_UART_Read2 A94 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_UART_Write 1832 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
-___awdiv@sign 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+_UART_Write 1A1E 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
+___awdiv@sign 63 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON 6 0 CODE 0 idataCOMMON dist/default/production\pic_sim_debug.X.production.o
-potenza@b 49 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-potenza@e 47 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-potenza@i 4A 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-potenza@n 4C 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_lcdSend 18B2 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
-___awdiv@dividend 4F 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__pidataCOMMON FFC 0 CODE 0 idataCOMMON dist/default/production\pic_sim_debug.X.production.o
+potenza@b 59 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+potenza@e 57 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+potenza@i 5A 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+potenza@n 5C 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_lcdSend 1A9E 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
+___awdiv@dividend 5F 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __LdataCOMMON 0 0 ABS 0 dataCOMMON -
-__end_of___bmul FF0 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
+__end_of___bmul 1AFA 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___bmul@multiplier 46 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-___awdiv@divisor 4D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of___awdiv 1B50 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
-__end_of___awmod 1A7E 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-___stacklo 0 0 ABS 0 - C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-__end_of_UART_Read1 E9E 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
-__end_of_UART_Read2 AC6 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
-__end_of_UART_Write 1846 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
+___bmul@multiplier 56 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+___awdiv@divisor 5D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of___awdiv 1D12 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
+__end_of___awmod 1C40 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+___stacklo 0 0 ABS 0 - C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+__end_of_UART_Read1 A94 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
+__end_of_UART_Read2 DD8 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
+__end_of_UART_Write 1A32 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
-_print_countdown 40 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+_print_countdown 50 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
 start_initialization 26 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
 _TRISEbits 89 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-_RS485_TxEnable 1828 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
-clear_ram0 FF0 0 CODE 0 clrtext dist/default/production\pic_sim_debug.X.production.o
-__pcstackBANK0 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-lcdPrint@str 45 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+_RS485_TxEnable FF2 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
+clear_ram0 1A0E 0 CODE 0 clrtext dist/default/production\pic_sim_debug.X.production.o
+__pcstackBANK0 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\pic_sim_debug.X.production.o
+lcdPrint@str 55 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 _TMR0IE 5D 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TMR0IF 5A 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TRISC6 43E 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _TRISC7 43F 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-lcdPrint@n 4A 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_initLCD 1C2C 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
+lcdPrint@n 5A 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_initLCD 1DEE 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
-__Hcinit 7C 0 CODE 0 cinit -
+__Hcinit 60 0 CODE 0 cinit -
 __Hidloc 4008 0 IDLOC 5 idloc -
 __Hstack 0 0 STACK 2 stack -
-__stringbase EBC 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+__stringbase 101E 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 _countdown 79 0 COMMON 1 dataCOMMON dist/default/production\pic_sim_debug.X.production.o
-_intToString 1C2C 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
+_intToString 1DEE 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
@@ -757,7 +730,7 @@ __Lcinit 26 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
 __Lstack 0 0 STACK 2 stack -
 _PORTEbits 9 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-__end_of_RS485_TxEnable 1832 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
+__end_of_RS485_TxEnable FFC 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 20 0 CODE 0 init -
@@ -774,15 +747,16 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-_keypressed 3A 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-___bmul FC2 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
+_keypressed 4A 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+___bmul 1ACC 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
-_Timer0_Init 1846 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
+_Timer0_Init 1A32 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_rowMask ED6 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+_rowMask 1038 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 _rowScan 76 0 COMMON 1 bssCOMMON dist/default/production\pic_sim_debug.X.production.o
 _GIE 5F 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-_ISR 1E3E 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
+_ISR DD8 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
 _PS0 408 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _PS1 409 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _PS2 40A 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
@@ -790,46 +764,45 @@ _PSA 40B 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _RC0 38 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _RC1 39 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 __S0 1000 0 ABS 0 - -
-__S1 B0 0 ABS 0 - -
+__S1 A4 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_RS485_RxEnable 181E 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
+_RS485_RxEnable 1A04 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
-_KeyPadReader 1D24 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
-_codice 26 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_potenza 1938 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
-UART_Read1@count 62 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+_KeyPadReader 1EE6 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
+_codice 36 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_potenza FF2 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
+UART_Read1@count A3 0 BANK1 1 cstackBANK1 dist/default/production\pic_sim_debug.X.production.o
 __HidataCOMMON 0 0 ABS 0 idataCOMMON -
-__end_of_GenerateRandomNumber 18E0 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
-__end_of_ISR 2000 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
+__end_of_GenerateRandomNumber 1ACC 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
+__end_of_ISR F9A 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
 _old_btn 3C0 -348 COMMON 1 bitbssCOMMON dist/default/production\pic_sim_debug.X.production.o
-_lcdPrint 1938 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
+_lcdPrint 1AFA 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-__stringtab E9E 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
-_lcdSend 1888 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\GForlan\AppData\Local\Temp\xcAsa6k.o
-__pdataBANK0 63 0 BANK0 1 dataBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_lcdPrint 19C8 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
+__stringtab 1000 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+_lcdSend 1A74 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\GForlan\AppData\Local\Temp\xcAs34o.o
+__pdataBANK0 6F 0 BANK0 1 dataBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_lcdPrint 1B8A 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__LbssBANK1 0 0 ABS 0 bssBANK1 -
-___awmod@counter 48 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_colMask EE4 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
-__ptext10 1A7E 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
-__ptext11 1832 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
-__ptext12 1828 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
-__ptext13 181E 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
-__ptext14 1864 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
-__ptext15 1846 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
-__ptext16 1D24 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
-__ptext17 18B2 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
-__ptext18 1E3E 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
-___awdiv 1A7E 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
-___awmod 19C8 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
-__end_of_RS485_RxEnable 1828 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
-__pmaintext 7C 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
+___awmod@counter 58 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_colMask 1046 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+__ptext10 1C40 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
+__ptext11 1A1E 0 CODE 0 text11 dist/default/production\pic_sim_debug.X.production.o
+__ptext12 FF2 0 CODE 0 text12 dist/default/production\pic_sim_debug.X.production.o
+__ptext13 1A04 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
+__ptext14 1A50 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
+__ptext15 1A32 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
+__ptext16 1EE6 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
+__ptext17 1A9E 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
+__ptext18 DD8 0 CODE 0 text18 dist/default/production\pic_sim_debug.X.production.o
+___awdiv 1C40 0 CODE 0 text10 dist/default/production\pic_sim_debug.X.production.o
+___awmod 1B8A 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
+__end_of_RS485_RxEnable 1A0E 0 CODE 0 text13 dist/default/production\pic_sim_debug.X.production.o
+__pmaintext 60 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_KeyPadReader 1E3E 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
-__end_of__stringtab EBE 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+__end_of_KeyPadReader 2000 0 CODE 0 text16 dist/default/production\pic_sim_debug.X.production.o
+__end_of__stringtab 1020 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -838,52 +811,52 @@ __Lspace_4 0 0 ABS 0 - -
 __pbssCOMMON 75 0 COMMON 1 bssCOMMON dist/default/production\pic_sim_debug.X.production.o
 __HbitbssCOMMON 0 0 ABS 0 bitbssCOMMON -
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __Lend_init 20 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 74 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
+end_of_initialization 58 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
 __Hintentry 20 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
-___awdiv@quotient 54 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-?___awdiv 4D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-?___awmod 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+___awdiv@quotient 64 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+?___awdiv 5D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+?___awmod 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__HbssBANK1 0 0 ABS 0 bssBANK1 -
-_initLCD 1B50 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
-___awmod@dividend 45 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-intToString@cifre 5D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of_UART_Init 1888 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
-__ptext1 1B50 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
-__ptext2 688 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
-__ptext3 AC6 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
-__ptext4 1938 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
-__ptext5 1888 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
-__ptext6 1C2C 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
-__ptext7 18E0 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
-__ptext8 FC2 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
-__ptext9 19C8 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
-intToString@str 58 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+_initLCD 1D12 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
+___awmod@dividend 55 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+intToString@cifre 6D 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of_UART_Init 1A74 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
+__ptext1 1D12 0 CODE 0 text1 dist/default/production\pic_sim_debug.X.production.o
+__ptext2 A94 0 CODE 0 text2 dist/default/production\pic_sim_debug.X.production.o
+__ptext3 660 0 CODE 0 text3 dist/default/production\pic_sim_debug.X.production.o
+__ptext4 1AFA 0 CODE 0 text4 dist/default/production\pic_sim_debug.X.production.o
+__ptext5 1A74 0 CODE 0 text5 dist/default/production\pic_sim_debug.X.production.o
+__ptext6 1DEE 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
+__ptext7 F9A 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
+__ptext8 1ACC 0 CODE 0 text8 dist/default/production\pic_sim_debug.X.production.o
+__ptext9 1B8A 0 CODE 0 text9 dist/default/production\pic_sim_debug.X.production.o
+intToString@str 68 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-UART_Write@data 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+UART_Write@data 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_intToString 1D24 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
+__end_of_intToString 1EE6 0 CODE 0 text6 dist/default/production\pic_sim_debug.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-_UART_Init 1864 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
-intToString@i 5E 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-intToString@n 56 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-intToString@t 5C 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
-__end_of__initialization 74 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
-___awmod@divisor 43 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+_UART_Init 1A50 0 CODE 0 text14 dist/default/production\pic_sim_debug.X.production.o
+intToString@i 6E 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+intToString@n 66 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+intToString@t 6C 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+__end_of__initialization 58 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
+___awmod@divisor 53 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 181A 0 CODE 0 idataBANK0 dist/default/production\pic_sim_debug.X.production.o
-_old_stato 38 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
+__pidataBANK0 FFE 0 CODE 0 idataBANK0 dist/default/production\pic_sim_debug.X.production.o
+_old_stato 48 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-_potenza 18E0 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
-__end_of_Timer0_Init 1864 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
+_potenza F9A 0 CODE 0 text7 dist/default/production\pic_sim_debug.X.production.o
+__end_of_Timer0_Init 1A50 0 CODE 0 text15 dist/default/production\pic_sim_debug.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\pic_sim_debug.X.production.o
 __Hend_init 26 0 CODE 0 end_init -
-__end_of_keys ED6 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
-__end_of_main 688 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
+__end_of_keys 1038 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+__end_of_main 660 0 CODE 0 maintext dist/default/production\pic_sim_debug.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
 _RCREG 1A 0 ABS 0 - dist/default/production\pic_sim_debug.X.production.o
@@ -898,19 +871,18 @@ __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\pic_sim_debug.X.production.o
 _stato 75 0 COMMON 1 bssCOMMON dist/default/production\pic_sim_debug.X.production.o
-GenerateRandomNumber@count 44 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+GenerateRandomNumber@count 54 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\pic_sim_debug.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
 __LbitbssCOMMON 0 0 ABS 0 bitbssCOMMON -
 __initialization 26 0 CODE 0 cinit dist/default/production\pic_sim_debug.X.production.o
-___bmul@product 45 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
+___bmul@product 55 0 BANK0 1 cstackBANK0 dist/default/production\pic_sim_debug.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\pic_sim_debug.X.production.o
-__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\pic_sim_debug.X.production.o
-_GenerateRandomNumber 18B2 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
+_GenerateRandomNumber 1A9E 0 CODE 0 text17 dist/default/production\pic_sim_debug.X.production.o
 __pdataCOMMON 79 0 COMMON 1 dataCOMMON dist/default/production\pic_sim_debug.X.production.o
-_colMask EDE 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+_colMask 1040 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 _colScan 77 0 COMMON 1 bssCOMMON dist/default/production\pic_sim_debug.X.production.o
-__pstrings E9E 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
+__pstrings 1000 0 STRING 0 strings dist/default/production\pic_sim_debug.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -936,29 +908,26 @@ __pstrings E9E 0 STRING 0 strings dist/default/production\pic_sim_debug.X.produc
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 DA8 1B50 6E 2
-text4 0 C9C 1938 48 2
-text5 0 C44 1888 15 2
-text6 0 E16 1C2C 7C 2
-text7 0 C70 18E0 2C 2
-text8 0 7E1 FC2 1F 2
-text9 0 CE4 19C8 5B 2
-text10 0 D3F 1A7E 69 2
-text11 0 C19 1832 A 2
-text12 0 C14 1828 5 2
-text13 0 C0F 181E 5 2
-text14 0 C32 1864 12 2
-text15 0 C23 1846 F 2
-text16 0 E92 1D24 8D 2
-text17 0 C59 18B2 17 2
-text18 0 F1F 1E3E E1 2
+text1 0 E89 1D12 6E 2
+text4 0 D7D 1AFA 48 2
+text5 0 D3A 1A74 15 2
+text6 0 EF7 1DEE 7C 2
+text8 0 D66 1ACC 17 2
+text9 0 DC5 1B8A 5B 2
+text10 0 E20 1C40 69 2
+text11 0 D0F 1A1E A 2
+text13 0 D02 1A04 5 2
+text14 0 D28 1A50 12 2
+text15 0 D19 1A32 F 2
+text16 0 F73 1EE6 8D 2
+text17 0 D4F 1A9E 17 2
 cstackCOMMON 1 70 70 A 1
-intentry 0 4 8 74B 2
-reset_vec 0 0 0 4 2
-bssBANK0 1 20 20 45 1
-bssBANK1 1 A0 A0 10 1
-idataBANK0 0 C0D 181A 2 2
-strings 0 74F E9E 92 2
+cstackBANK1 1 A0 A0 4 1
+intentry 0 4 8 7FC 2
+reset_vec 0 0 0 3 2
+bssBANK0 1 20 20 50 1
+strings 0 800 1000 97 2
+clrtext 0 D07 1A0E 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

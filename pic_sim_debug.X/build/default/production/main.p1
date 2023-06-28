@@ -493,16 +493,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `ui
 ]
 "103
-[; ;main.c: 103: unsigned char id1 = 0x30;
+[; ;main.c: 103: unsigned char id1 = 0x01;
 [v _id1 `uc ~T0 @X0 1 e ]
 [i _id1
--> -> 48 `i `uc
-]
-"104
-[; ;main.c: 104: unsigned char id2 = 0x31;
-[v _id2 `uc ~T0 @X0 1 e ]
-[i _id2
--> -> 49 `i `uc
+-> -> 1 `i `uc
 ]
 "105
 [; ;main.c: 105: unsigned char type;
@@ -749,12 +743,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "178
 [; ;main.c: 178:         UART_Write(id1);
 [e ( _UART_Write (1 -> _id1 `uc ]
-"179
-[; ;main.c: 179:         UART_Write(id2);
-[e ( _UART_Write (1 -> _id2 `uc ]
 "180
-[; ;main.c: 180:         type = 0x31;
-[e = _type -> -> 49 `i `uc ]
+[; ;main.c: 180:         type = 0x01;
+[e = _type -> -> 1 `i `uc ]
 "181
 [; ;main.c: 181:         UART_Write(type);
 [e ( _UART_Write (1 -> _type `uc ]
@@ -1050,8 +1041,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 275:                                 _delay((unsigned long)((60)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "276
-[; ;main.c: 276:                                 if(RCREG == id2){
-[e $ ! == -> _RCREG `i -> _id2 `i 148  ]
+[; ;main.c: 276:                                 if(RCREG == 0x01){
+[e $ ! == -> _RCREG `i -> 1 `i 148  ]
 {
 "277
 [; ;main.c: 277:                                     lcdSend(0x80 + 1, 0);
@@ -1066,121 +1057,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 280:                                     trash = RCREG;
 [e = _trash -> _RCREG `uc ]
 "281
-[; ;main.c: 281:                                     while (countdown != 0){
-[e $U 149  ]
-[e :U 150 ]
-{
-"282
-[; ;main.c: 282:                                         if (!RCIF){
-[e $ ! ! _RCIF 152  ]
-{
-"283
-[; ;main.c: 283:                                             intToString(countdown, print_countdown);
-[e ( _intToString (2 , -> _countdown `i &U _print_countdown ]
-"284
-[; ;main.c: 284:                                             lcdSend(0xC0, 0);
-[e ( _lcdSend (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
-"285
-[; ;main.c: 285:                                             lcdPrint(print_countdown);
-[e ( _lcdPrint (1 &U _print_countdown ]
-"286
-[; ;main.c: 286:                                             countdown --;
-[e -- _countdown -> -> 1 `i `uc ]
-"287
-[; ;main.c: 287:                                             _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"288
-[; ;main.c: 288:                                         }
-}
-[e $U 153  ]
-"289
-[; ;main.c: 289:                                         else{
-[e :U 152 ]
-{
-"290
-[; ;main.c: 290:                                             while (countdown != 0){
-[e $U 154  ]
-[e :U 155 ]
-{
-"291
-[; ;main.c: 291:                                                 intToString(countdown, print_countdown);
-[e ( _intToString (2 , -> _countdown `i &U _print_countdown ]
-"292
-[; ;main.c: 292:                                                 lcdSend(0xC0, 0);
-[e ( _lcdSend (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
-"293
-[; ;main.c: 293:                                                 lcdPrint(print_countdown);
-[e ( _lcdPrint (1 &U _print_countdown ]
-"294
-[; ;main.c: 294:                                                 countdown --;
-[e -- _countdown -> -> 1 `i `uc ]
-"295
-[; ;main.c: 295:                                                 _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"296
-[; ;main.c: 296:                                                 if(RCREG == 0x33){
-[e $ ! == -> _RCREG `i -> 51 `i 157  ]
-{
-"297
-[; ;main.c: 297:                                                     lcdSend(0x80 + 2, 0);
-[e ( _lcdSend (2 , -> + -> 128 `i -> 2 `i `uc -> -> 0 `i `uc ]
-"298
-[; ;main.c: 298:                                                     lcdSend(RCREG, 1);
-[e ( _lcdSend (2 , -> _RCREG `uc -> -> 1 `i `uc ]
-"299
-[; ;main.c: 299:                                                     RCIF = 0;
-[e = _RCIF -> -> 0 `i `b ]
-"300
-[; ;main.c: 300:                                                     trash = RCREG;
-[e = _trash -> _RCREG `uc ]
-"301
-[; ;main.c: 301:                                                     countdown = 60;
+[; ;main.c: 281:                                     countdown = 60;
 [e = _countdown -> -> 60 `i `uc ]
-"302
-[; ;main.c: 302:                                                     lcdSend(0xC0, 0);
+"282
+[; ;main.c: 282:                                     lcdSend(0xC0, 0);
 [e ( _lcdSend (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
-"303
-[; ;main.c: 303:                                                     lcdPrint("FATTA");
+"283
+[; ;main.c: 283:                                     lcdPrint("APRI PORTA");
 [e ( _lcdPrint (1 :s 8C ]
-"304
-[; ;main.c: 304:                                                     _delay((unsigned long)((200)*(20000000/4000.0)));
+"284
+[; ;main.c: 284:                                     _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"305
-[; ;main.c: 305:                                                     return RCREG;
+"285
+[; ;main.c: 285:                                     return RCREG;
 [e ) -> _RCREG `uc ]
 [e $UE 130  ]
-"306
-[; ;main.c: 306:                                                 }
-}
-[e :U 157 ]
-"307
-[; ;main.c: 307:                                                 RCIF = 0;
-[e = _RCIF -> -> 0 `i `b ]
-"308
-[; ;main.c: 308:                                                 trash = RCREG;
-[e = _trash -> _RCREG `uc ]
-"309
-[; ;main.c: 309:                                             }
-}
-[e :U 154 ]
-"290
-[; ;main.c: 290:                                             while (countdown != 0){
-[e $ != -> _countdown `i -> 0 `i 155  ]
-[e :U 156 ]
-"310
-[; ;main.c: 310:                                         }
-}
-[e :U 153 ]
-"311
-[; ;main.c: 311:                                     }
-}
-[e :U 149 ]
-"281
-[; ;main.c: 281:                                     while (countdown != 0){
-[e $ != -> _countdown `i -> 0 `i 150  ]
-[e :U 151 ]
-"312
-[; ;main.c: 312:                                 }
+"286
+[; ;main.c: 286:                                 }
 }
 [e :U 148 ]
 "313
@@ -1277,16 +1170,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _countdown -> -> 60 `i `uc ]
 "337
 [; ;main.c: 337:     while (countdown != 0){
-[e $U 159  ]
-[e :U 160 ]
+[e $U 150  ]
+[e :U 151 ]
 {
 "338
 [; ;main.c: 338:         if (count != 5){
-[e $ ! != -> _count `i -> 5 `i 162  ]
+[e $ ! != -> _count `i -> 5 `i 153  ]
 {
 "339
 [; ;main.c: 339:             if(keypressed != 0 && count == 0){
-[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 0 `i 163  ]
+[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 0 `i 154  ]
 {
 "340
 [; ;main.c: 340:                 lcdSend(0x01, 0);
@@ -1306,10 +1199,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "345
 [; ;main.c: 345:             }
 }
-[e :U 163 ]
+[e :U 154 ]
 "346
 [; ;main.c: 346:             if(keypressed != 0 && count == 1){
-[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 1 `i 164  ]
+[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 1 `i 155  ]
 {
 "347
 [; ;main.c: 347:                 lcdSend(0x80 + count, 0);
@@ -1329,10 +1222,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "352
 [; ;main.c: 352:             }
 }
-[e :U 164 ]
+[e :U 155 ]
 "353
 [; ;main.c: 353:             if(keypressed != 0 && count == 2){
-[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 2 `i 165  ]
+[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 2 `i 156  ]
 {
 "354
 [; ;main.c: 354:                 lcdSend(0x80 + count, 0);
@@ -1352,10 +1245,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "359
 [; ;main.c: 359:             }
 }
-[e :U 165 ]
+[e :U 156 ]
 "360
 [; ;main.c: 360:             if(keypressed != 0 && count == 3){
-[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 3 `i 166  ]
+[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 3 `i 157  ]
 {
 "361
 [; ;main.c: 361:                 lcdSend(0x80 + count, 0);
@@ -1375,10 +1268,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "366
 [; ;main.c: 366:             }
 }
-[e :U 166 ]
+[e :U 157 ]
 "367
 [; ;main.c: 367:             if(keypressed != 0 && count == 4){
-[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 4 `i 167  ]
+[e $ ! && != -> _keypressed `i -> 0 `i == -> _count `i -> 4 `i 158  ]
 {
 "368
 [; ;main.c: 368:                 lcdSend(0x80 + count, 0);
@@ -1398,7 +1291,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "373
 [; ;main.c: 373:             }
 }
-[e :U 167 ]
+[e :U 158 ]
 "374
 [; ;main.c: 374:             intToString(countdown, print_countdown);
 [e ( _intToString (2 , -> _countdown `i &U _print_countdown ]
@@ -1417,10 +1310,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "379
 [; ;main.c: 379:         }
 }
-[e $U 168  ]
+[e $U 159  ]
 "380
 [; ;main.c: 380:         else{
-[e :U 162 ]
+[e :U 153 ]
 {
 "381
 [; ;main.c: 381:             RS485_TxEnable();
@@ -1428,12 +1321,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "382
 [; ;main.c: 382:             UART_Write(id1);
 [e ( _UART_Write (1 -> _id1 `uc ]
-"383
-[; ;main.c: 383:             UART_Write(id2);
-[e ( _UART_Write (1 -> _id2 `uc ]
 "384
-[; ;main.c: 384:             UART_Write(0x32);
-[e ( _UART_Write (1 -> -> 50 `i `uc ]
+[; ;main.c: 384:             UART_Write(0x02);
+[e ( _UART_Write (1 -> -> 2 `i `uc ]
 "385
 [; ;main.c: 385:             UART_Write(num1);
 [e ( _UART_Write (1 -> _num1 `uc ]
@@ -1476,19 +1366,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "398
 [; ;main.c: 398:             return RCREG;
 [e ) -> _RCREG `uc ]
-[e $UE 158  ]
+[e $UE 149  ]
 "399
 [; ;main.c: 399:         }
 }
-[e :U 168 ]
+[e :U 159 ]
 "400
 [; ;main.c: 400:     }
 }
-[e :U 159 ]
+[e :U 150 ]
 "337
 [; ;main.c: 337:     while (countdown != 0){
-[e $ != -> _countdown `i -> 0 `i 160  ]
-[e :U 161 ]
+[e $ != -> _countdown `i -> 0 `i 151  ]
+[e :U 152 ]
 "401
 [; ;main.c: 401:     lcdSend(0x01, 0);
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
@@ -1507,10 +1397,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "406
 [; ;main.c: 406:     return RCREG;
 [e ) -> _RCREG `uc ]
-[e $UE 158  ]
+[e $UE 149  ]
 "409
 [; ;main.c: 409: }
-[e :UE 158 ]
+[e :UE 149 ]
 }
 "411
 [; ;main.c: 411: void initLCD() {
@@ -1562,7 +1452,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 128 `i `uc -> -> 0 `i `uc ]
 "426
 [; ;main.c: 426: }
-[e :UE 169 ]
+[e :UE 160 ]
 }
 "428
 [; ;main.c: 428: void lcdSend(char dato, char tipo) {
@@ -1598,7 +1488,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
 "447
 [; ;main.c: 447: }
-[e :UE 170 ]
+[e :UE 161 ]
 }
 "449
 [; ;main.c: 449: void lcdPrint(char *str) {
@@ -1613,8 +1503,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _n -> 0 `i ]
 "451
 [; ;main.c: 451:     while (str[n] != '\0') {
-[e $U 172  ]
-[e :U 173 ]
+[e $U 163  ]
+[e :U 164 ]
 {
 "452
 [; ;main.c: 452:         lcdSend(str[n++], 1);
@@ -1622,14 +1512,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "453
 [; ;main.c: 453:     }
 }
-[e :U 172 ]
+[e :U 163 ]
 "451
 [; ;main.c: 451:     while (str[n] != '\0') {
-[e $ != -> *U + _str * -> _n `x -> -> # *U _str `i `x `ui -> 0 `ui 173  ]
-[e :U 174 ]
+[e $ != -> *U + _str * -> _n `x -> -> # *U _str `i `x `ui -> 0 `ui 164  ]
+[e :U 165 ]
 "454
 [; ;main.c: 454: }
-[e :UE 171 ]
+[e :UE 162 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
 "456
@@ -1640,292 +1530,292 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "457
 [; ;main.c: 457:     while (!TMR0IF){
-[e $U 176  ]
-[e :U 177 ]
+[e $U 167  ]
+[e :U 168 ]
 {
 "458
 [; ;main.c: 458:         continue;
-[e $U 176  ]
+[e $U 167  ]
 "459
 [; ;main.c: 459:     }
 }
-[e :U 176 ]
+[e :U 167 ]
 "457
 [; ;main.c: 457:     while (!TMR0IF){
-[e $ ! _TMR0IF 177  ]
-[e :U 178 ]
+[e $ ! _TMR0IF 168  ]
+[e :U 169 ]
 "460
 [; ;main.c: 460:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "461
 [; ;main.c: 461:     while (!TMR0IF){
-[e $U 179  ]
-[e :U 180 ]
+[e $U 170  ]
+[e :U 171 ]
 {
 "462
 [; ;main.c: 462:         continue;
-[e $U 179  ]
+[e $U 170  ]
 "463
 [; ;main.c: 463:     }
 }
-[e :U 179 ]
+[e :U 170 ]
 "461
 [; ;main.c: 461:     while (!TMR0IF){
-[e $ ! _TMR0IF 180  ]
-[e :U 181 ]
+[e $ ! _TMR0IF 171  ]
+[e :U 172 ]
 "464
 [; ;main.c: 464:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "465
 [; ;main.c: 465:     while (!TMR0IF){
-[e $U 182  ]
-[e :U 183 ]
+[e $U 173  ]
+[e :U 174 ]
 {
 "466
 [; ;main.c: 466:         continue;
-[e $U 182  ]
+[e $U 173  ]
 "467
 [; ;main.c: 467:     }
 }
-[e :U 182 ]
+[e :U 173 ]
 "465
 [; ;main.c: 465:     while (!TMR0IF){
-[e $ ! _TMR0IF 183  ]
-[e :U 184 ]
+[e $ ! _TMR0IF 174  ]
+[e :U 175 ]
 "468
 [; ;main.c: 468:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "469
 [; ;main.c: 469:     while (!TMR0IF){
-[e $U 185  ]
-[e :U 186 ]
+[e $U 176  ]
+[e :U 177 ]
 {
 "470
 [; ;main.c: 470:         continue;
-[e $U 185  ]
+[e $U 176  ]
 "471
 [; ;main.c: 471:     }
 }
-[e :U 185 ]
+[e :U 176 ]
 "469
 [; ;main.c: 469:     while (!TMR0IF){
-[e $ ! _TMR0IF 186  ]
-[e :U 187 ]
+[e $ ! _TMR0IF 177  ]
+[e :U 178 ]
 "472
 [; ;main.c: 472:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "473
 [; ;main.c: 473:     while (!TMR0IF){
-[e $U 188  ]
-[e :U 189 ]
+[e $U 179  ]
+[e :U 180 ]
 {
 "474
 [; ;main.c: 474:         continue;
-[e $U 188  ]
+[e $U 179  ]
 "475
 [; ;main.c: 475:     }
 }
-[e :U 188 ]
+[e :U 179 ]
 "473
 [; ;main.c: 473:     while (!TMR0IF){
-[e $ ! _TMR0IF 189  ]
-[e :U 190 ]
+[e $ ! _TMR0IF 180  ]
+[e :U 181 ]
 "476
 [; ;main.c: 476:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "477
 [; ;main.c: 477:     while (!TMR0IF){
-[e $U 191  ]
-[e :U 192 ]
+[e $U 182  ]
+[e :U 183 ]
 {
 "478
 [; ;main.c: 478:         continue;
-[e $U 191  ]
+[e $U 182  ]
 "479
 [; ;main.c: 479:     }
 }
-[e :U 191 ]
+[e :U 182 ]
 "477
 [; ;main.c: 477:     while (!TMR0IF){
-[e $ ! _TMR0IF 192  ]
-[e :U 193 ]
+[e $ ! _TMR0IF 183  ]
+[e :U 184 ]
 "480
 [; ;main.c: 480:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "481
 [; ;main.c: 481:     while (!TMR0IF){
-[e $U 194  ]
-[e :U 195 ]
+[e $U 185  ]
+[e :U 186 ]
 {
 "482
 [; ;main.c: 482:         continue;
-[e $U 194  ]
+[e $U 185  ]
 "483
 [; ;main.c: 483:     }
 }
-[e :U 194 ]
+[e :U 185 ]
 "481
 [; ;main.c: 481:     while (!TMR0IF){
-[e $ ! _TMR0IF 195  ]
-[e :U 196 ]
+[e $ ! _TMR0IF 186  ]
+[e :U 187 ]
 "484
 [; ;main.c: 484:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "485
 [; ;main.c: 485:     while (!TMR0IF){
-[e $U 197  ]
-[e :U 198 ]
+[e $U 188  ]
+[e :U 189 ]
 {
 "486
 [; ;main.c: 486:         continue;
-[e $U 197  ]
+[e $U 188  ]
 "487
 [; ;main.c: 487:     }
 }
-[e :U 197 ]
+[e :U 188 ]
 "485
 [; ;main.c: 485:     while (!TMR0IF){
-[e $ ! _TMR0IF 198  ]
-[e :U 199 ]
+[e $ ! _TMR0IF 189  ]
+[e :U 190 ]
 "488
 [; ;main.c: 488:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "489
 [; ;main.c: 489:     while (!TMR0IF){
-[e $U 200  ]
-[e :U 201 ]
+[e $U 191  ]
+[e :U 192 ]
 {
 "490
 [; ;main.c: 490:         continue;
-[e $U 200  ]
+[e $U 191  ]
 "491
 [; ;main.c: 491:     }
 }
-[e :U 200 ]
+[e :U 191 ]
 "489
 [; ;main.c: 489:     while (!TMR0IF){
-[e $ ! _TMR0IF 201  ]
-[e :U 202 ]
+[e $ ! _TMR0IF 192  ]
+[e :U 193 ]
 "492
 [; ;main.c: 492:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "493
 [; ;main.c: 493:     while (!TMR0IF){
-[e $U 203  ]
-[e :U 204 ]
+[e $U 194  ]
+[e :U 195 ]
 {
 "494
 [; ;main.c: 494:         continue;
-[e $U 203  ]
+[e $U 194  ]
 "495
 [; ;main.c: 495:     }
 }
-[e :U 203 ]
+[e :U 194 ]
 "493
 [; ;main.c: 493:     while (!TMR0IF){
-[e $ ! _TMR0IF 204  ]
-[e :U 205 ]
+[e $ ! _TMR0IF 195  ]
+[e :U 196 ]
 "496
 [; ;main.c: 496:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "497
 [; ;main.c: 497:     while (!TMR0IF){
-[e $U 206  ]
-[e :U 207 ]
+[e $U 197  ]
+[e :U 198 ]
 {
 "498
 [; ;main.c: 498:         continue;
-[e $U 206  ]
+[e $U 197  ]
 "499
 [; ;main.c: 499:     }
 }
-[e :U 206 ]
+[e :U 197 ]
 "497
 [; ;main.c: 497:     while (!TMR0IF){
-[e $ ! _TMR0IF 207  ]
-[e :U 208 ]
+[e $ ! _TMR0IF 198  ]
+[e :U 199 ]
 "500
 [; ;main.c: 500:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "501
 [; ;main.c: 501:     while (!TMR0IF){
-[e $U 209  ]
-[e :U 210 ]
+[e $U 200  ]
+[e :U 201 ]
 {
 "502
 [; ;main.c: 502:         continue;
-[e $U 209  ]
+[e $U 200  ]
 "503
 [; ;main.c: 503:     }
 }
-[e :U 209 ]
+[e :U 200 ]
 "501
 [; ;main.c: 501:     while (!TMR0IF){
-[e $ ! _TMR0IF 210  ]
-[e :U 211 ]
+[e $ ! _TMR0IF 201  ]
+[e :U 202 ]
 "504
 [; ;main.c: 504:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "505
 [; ;main.c: 505:     while (!TMR0IF){
-[e $U 212  ]
-[e :U 213 ]
+[e $U 203  ]
+[e :U 204 ]
 {
 "506
 [; ;main.c: 506:         continue;
-[e $U 212  ]
+[e $U 203  ]
 "507
 [; ;main.c: 507:     }
 }
-[e :U 212 ]
+[e :U 203 ]
 "505
 [; ;main.c: 505:     while (!TMR0IF){
-[e $ ! _TMR0IF 213  ]
-[e :U 214 ]
+[e $ ! _TMR0IF 204  ]
+[e :U 205 ]
 "508
 [; ;main.c: 508:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "509
 [; ;main.c: 509:     while (!TMR0IF){
-[e $U 215  ]
-[e :U 216 ]
+[e $U 206  ]
+[e :U 207 ]
 {
 "510
 [; ;main.c: 510:         continue;
-[e $U 215  ]
+[e $U 206  ]
 "511
 [; ;main.c: 511:     }
 }
-[e :U 215 ]
+[e :U 206 ]
 "509
 [; ;main.c: 509:     while (!TMR0IF){
-[e $ ! _TMR0IF 216  ]
-[e :U 217 ]
+[e $ ! _TMR0IF 207  ]
+[e :U 208 ]
 "512
 [; ;main.c: 512:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "513
 [; ;main.c: 513:     while (!TMR0IF){
-[e $U 218  ]
-[e :U 219 ]
+[e $U 209  ]
+[e :U 210 ]
 {
 "514
 [; ;main.c: 514:         continue;
-[e $U 218  ]
+[e $U 209  ]
 "515
 [; ;main.c: 515:     }
 }
-[e :U 218 ]
+[e :U 209 ]
 "513
 [; ;main.c: 513:     while (!TMR0IF){
-[e $ ! _TMR0IF 219  ]
-[e :U 220 ]
+[e $ ! _TMR0IF 210  ]
+[e :U 211 ]
 "516
 [; ;main.c: 516:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
 "517
 [; ;main.c: 517:     if(flag == 1){
-[e $ ! == _flag -> 1 `i 221  ]
+[e $ ! == _flag -> 1 `i 212  ]
 {
 "518
 [; ;main.c: 518:         TRISD |= 0x0F;
@@ -1934,9 +1824,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 520:         for (colScan = 0; colScan < 3; colScan++) {
 {
 [e = _colScan -> -> 0 `i `uc ]
-[e $ < -> _colScan `i -> 3 `i 222  ]
-[e $U 223  ]
-[e :U 222 ]
+[e $ < -> _colScan `i -> 3 `i 213  ]
+[e $U 214  ]
+[e :U 213 ]
 {
 "521
 [; ;main.c: 521:             PORTB = PORTB | 0x07;
@@ -1948,13 +1838,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 525:             for (rowScan = 0; rowScan < 4; rowScan++) {
 {
 [e = _rowScan -> -> 0 `i `uc ]
-[e $ < -> _rowScan `i -> 4 `i 225  ]
-[e $U 226  ]
-[e :U 225 ]
+[e $ < -> _rowScan `i -> 4 `i 216  ]
+[e $U 217  ]
+[e :U 216 ]
 {
 "526
 [; ;main.c: 526:                 if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-[e $ ! && ! != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i _old_btn 228  ]
+[e $ ! && ! != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i _old_btn 219  ]
 {
 "527
 [; ;main.c: 527:                     old_btn = 0;
@@ -1965,14 +1855,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "529
 [; ;main.c: 529:                 }
 }
-[e :U 228 ]
+[e :U 219 ]
 "530
 [; ;main.c: 530:                 if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 229  ]
+[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 220  ]
 {
 "532
 [; ;main.c: 532:                     if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 230  ]
+[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 221  ]
 {
 "533
 [; ;main.c: 533:                         old_btn = 1;
@@ -1980,14 +1870,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "534
 [; ;main.c: 534:                     }
 }
-[e :U 230 ]
+[e :U 221 ]
 "535
 [; ;main.c: 535:                 }
 }
-[e :U 229 ]
+[e :U 220 ]
 "536
 [; ;main.c: 536:                 if (stato != old_stato) {
-[e $ ! != -> _stato `i -> _old_stato `i 231  ]
+[e $ ! != -> _stato `i -> _old_stato `i 222  ]
 {
 "537
 [; ;main.c: 537:                     keypressed = rowScan + (4 * colScan);
@@ -1998,20 +1888,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "541
 [; ;main.c: 541:                 }
 }
-[e :U 231 ]
+[e :U 222 ]
 "542
 [; ;main.c: 542:             }
 }
 [e ++ _rowScan -> -> 1 `i `uc ]
-[e $ < -> _rowScan `i -> 4 `i 225  ]
-[e :U 226 ]
+[e $ < -> _rowScan `i -> 4 `i 216  ]
+[e :U 217 ]
 }
 "543
 [; ;main.c: 543:         }
 }
 [e ++ _colScan -> -> 1 `i `uc ]
-[e $ < -> _colScan `i -> 3 `i 222  ]
-[e :U 223 ]
+[e $ < -> _colScan `i -> 3 `i 213  ]
+[e :U 214 ]
 }
 "544
 [; ;main.c: 544:         TRISD |= 0x00;
@@ -2019,10 +1909,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "545
 [; ;main.c: 545:     }
 }
-[e :U 221 ]
+[e :U 212 ]
 "546
 [; ;main.c: 546: }
-[e :UE 175 ]
+[e :UE 166 ]
 }
 "548
 [; ;main.c: 548: void Timer0_Init() {
@@ -2059,7 +1949,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 "561
 [; ;main.c: 561: }
-[e :UE 232 ]
+[e :UE 223 ]
 }
 "563
 [; ;main.c: 563: unsigned char GenerateRandomNumber() {
@@ -2073,8 +1963,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _count -> -> 0 `i `ui ]
 "565
 [; ;main.c: 565:     while (count != 186){
-[e $U 234  ]
-[e :U 235 ]
+[e $U 225  ]
+[e :U 226 ]
 {
 "566
 [; ;main.c: 566:         count++;
@@ -2082,11 +1972,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "567
 [; ;main.c: 567:     }
 }
-[e :U 234 ]
+[e :U 225 ]
 "565
 [; ;main.c: 565:     while (count != 186){
-[e $ != _count -> -> 186 `i `ui 235  ]
-[e :U 236 ]
+[e $ != _count -> -> 186 `i `ui 226  ]
+[e :U 227 ]
 "568
 [; ;main.c: 568:     unsigned char randomNum = TMR0;
 [v _randomNum `uc ~T0 @X0 1 a ]
@@ -2097,10 +1987,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "570
 [; ;main.c: 570:     return randomNum;
 [e ) _randomNum ]
-[e $UE 233  ]
+[e $UE 224  ]
 "571
 [; ;main.c: 571: }
-[e :UE 233 ]
+[e :UE 224 ]
 }
 "573
 [; ;main.c: 573: char KeyPadReader() {
@@ -2113,14 +2003,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| _TRISD -> -> 15 `i `Vuc ]
 "575
 [; ;main.c: 575:     do
-[e :U 240 ]
+[e :U 231 ]
 "577
 [; ;main.c: 577:     for (colScan = 0; colScan < 3; colScan++) {
 {
 [e = _colScan -> -> 0 `i `uc ]
-[e $ < -> _colScan `i -> 3 `i 241  ]
-[e $U 242  ]
-[e :U 241 ]
+[e $ < -> _colScan `i -> 3 `i 232  ]
+[e $U 233  ]
+[e :U 232 ]
 {
 "578
 [; ;main.c: 578:         PORTB = PORTB | 0x07;
@@ -2132,13 +2022,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 582:         for (rowScan = 0; rowScan < 4; rowScan++) {
 {
 [e = _rowScan -> -> 0 `i `uc ]
-[e $ < -> _rowScan `i -> 4 `i 244  ]
-[e $U 245  ]
-[e :U 244 ]
+[e $ < -> _rowScan `i -> 4 `i 235  ]
+[e $U 236  ]
+[e :U 235 ]
 {
 "583
 [; ;main.c: 583:             if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-[e $ ! && ! != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i _old_btn 247  ]
+[e $ ! && ! != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i _old_btn 238  ]
 {
 "584
 [; ;main.c: 584:                 old_btn = 0;
@@ -2149,17 +2039,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "586
 [; ;main.c: 586:             }
 }
-[e :U 247 ]
+[e :U 238 ]
 "587
 [; ;main.c: 587:             if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 248  ]
+[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 239  ]
 {
 "588
 [; ;main.c: 588:                 _delay((unsigned long)((10)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "589
 [; ;main.c: 589:                 if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 249  ]
+[e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 240  ]
 {
 "590
 [; ;main.c: 590:                     old_btn = 1;
@@ -2167,14 +2057,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "591
 [; ;main.c: 591:                 }
 }
-[e :U 249 ]
+[e :U 240 ]
 "592
 [; ;main.c: 592:             }
 }
-[e :U 248 ]
+[e :U 239 ]
 "593
 [; ;main.c: 593:             if (stato != old_stato) {
-[e $ ! != -> _stato `i -> _old_stato `i 250  ]
+[e $ ! != -> _stato `i -> _old_stato `i 241  ]
 {
 "594
 [; ;main.c: 594:                 keypressed = rowScan + (4 * colScan);
@@ -2185,30 +2075,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "598
 [; ;main.c: 598:                 return keypressed;
 [e ) -> _keypressed `uc ]
-[e $UE 237  ]
+[e $UE 228  ]
 "599
 [; ;main.c: 599:             }
 }
-[e :U 250 ]
+[e :U 241 ]
 "600
 [; ;main.c: 600:         }
 }
 [e ++ _rowScan -> -> 1 `i `uc ]
-[e $ < -> _rowScan `i -> 4 `i 244  ]
-[e :U 245 ]
+[e $ < -> _rowScan `i -> 4 `i 235  ]
+[e :U 236 ]
 }
 "601
 [; ;main.c: 601:     }
 }
 [e ++ _colScan -> -> 1 `i `uc ]
-[e $ < -> _colScan `i -> 3 `i 241  ]
-[e :U 242 ]
+[e $ < -> _colScan `i -> 3 `i 232  ]
+[e :U 233 ]
 }
-[e $ != -> 1 `i -> 0 `i 240  ]
-[e :U 239 ]
+[e $ != -> 1 `i -> 0 `i 231  ]
+[e :U 230 ]
 "603
 [; ;main.c: 603: }
-[e :UE 237 ]
+[e :UE 228 ]
 }
 "655
 [; ;main.c: 655: char potenza(char b, char e) {
@@ -2227,8 +2117,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 255  ]
-[e :U 252 ]
+[e $U 246  ]
+[e :U 243 ]
 {
 "658
 [; ;main.c: 658:         n = n * b;
@@ -2237,17 +2127,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 659:     }
 }
 [e ++ _i -> 1 `i ]
-[e :U 255 ]
-[e $ < _i -> _e `i 252  ]
-[e :U 253 ]
+[e :U 246 ]
+[e $ < _i -> _e `i 243  ]
+[e :U 244 ]
 }
 "660
 [; ;main.c: 660:     return n;
 [e ) _n ]
-[e $UE 251  ]
+[e $UE 242  ]
 "661
 [; ;main.c: 661: }
-[e :UE 251 ]
+[e :UE 242 ]
 }
 "663
 [; ;main.c: 663: void intToString(int n, char *str) {
@@ -2267,18 +2157,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _i -> -> 0 `i `uc ]
 "669
 [; ;main.c: 669:     while (n / potenza(10, cifre)) cifre++;
-[e $U 257  ]
-[e :U 258 ]
+[e $U 248  ]
+[e :U 249 ]
 [e ++ _cifre -> -> 1 `i `uc ]
-[e :U 257 ]
-[e $ != / _n -> ( _potenza (2 , -> -> 10 `i `uc _cifre `i -> 0 `i 258  ]
-[e :U 259 ]
+[e :U 248 ]
+[e $ != / _n -> ( _potenza (2 , -> -> 10 `i `uc _cifre `i -> 0 `i 249  ]
+[e :U 250 ]
 "671
 [; ;main.c: 671:     for (i = 0; i < cifre; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 263  ]
-[e :U 260 ]
+[e $U 254  ]
+[e :U 251 ]
 {
 "672
 [; ;main.c: 672:         char t = potenza(10, cifre - 1 - i);
@@ -2294,23 +2184,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 675:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 263 ]
-[e $ < -> _i `i -> _cifre `i 260  ]
-[e :U 261 ]
+[e :U 254 ]
+[e $ < -> _i `i -> _cifre `i 251  ]
+[e :U 252 ]
 }
 "677
 [; ;main.c: 677:     str[i] = '\0';
 [e = *U + _str * -> _i `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
 "678
 [; ;main.c: 678: }
-[e :UE 256 ]
+[e :UE 247 ]
 }
 [a 9C 84 101 109 112 111 32 83 99 97 100 117 116 111 0 ]
 [a 11C 67 111 100 105 99 101 32 83 99 97 100 117 116 111 0 ]
 [a 10C 77 97 110 100 97 116 111 0 ]
 [a 2C 65 116 116 101 110 100 101 114 101 0 ]
 [a 7C 65 116 116 101 110 100 101 114 101 0 ]
-[a 8C 70 65 84 84 65 0 ]
+[a 8C 65 80 82 73 32 80 79 82 84 65 0 ]
 [a 3C 65 116 116 101 110 100 101 114 101 46 0 ]
 [a 4C 65 116 116 101 110 100 101 114 101 46 46 0 ]
 [a 5C 65 116 116 101 110 100 101 114 101 46 46 46 0 ]

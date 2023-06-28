@@ -2112,8 +2112,8 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
-unsigned char id1 = 0x30;
-unsigned char id2 = 0x31;
+unsigned char id1 = 0x01;
+
 unsigned char type;
 
 void main()
@@ -2188,8 +2188,8 @@ void main()
         num5 = GenerateRandomNumber();
         }
         UART_Write(id1);
-        UART_Write(id2);
-        type = 0x31;
+
+        type = 0x01;
         UART_Write(type);
         UART_Write(num1);
         UART_Write(num2);
@@ -2285,43 +2285,18 @@ char UART_Read2() {
                                 lcdPrint(print_countdown);
                                 countdown --;
                                 _delay((unsigned long)((60)*(20000000/4000.0)));
-                                if(RCREG == id2){
+                                if(RCREG == 0x01){
                                     lcdSend(0x80 + 1, 0);
                                     lcdSend(RCREG, 1);
                                     RCIF = 0;
                                     trash = RCREG;
-                                    while (countdown != 0){
-                                        if (!RCIF){
-                                            intToString(countdown, print_countdown);
-                                            lcdSend(0xC0, 0);
-                                            lcdPrint(print_countdown);
-                                            countdown --;
-                                            _delay((unsigned long)((60)*(20000000/4000.0)));
-                                        }
-                                        else{
-                                            while (countdown != 0){
-                                                intToString(countdown, print_countdown);
-                                                lcdSend(0xC0, 0);
-                                                lcdPrint(print_countdown);
-                                                countdown --;
-                                                _delay((unsigned long)((60)*(20000000/4000.0)));
-                                                if(RCREG == 0x33){
-                                                    lcdSend(0x80 + 2, 0);
-                                                    lcdSend(RCREG, 1);
-                                                    RCIF = 0;
-                                                    trash = RCREG;
-                                                    countdown = 60;
-                                                    lcdSend(0xC0, 0);
-                                                    lcdPrint("FATTA");
-                                                    _delay((unsigned long)((200)*(20000000/4000.0)));
-                                                    return RCREG;
-                                                }
-                                                RCIF = 0;
-                                                trash = RCREG;
-                                            }
-                                        }
-                                    }
+                                    countdown = 60;
+                                    lcdSend(0xC0, 0);
+                                    lcdPrint("APRI PORTA");
+                                    _delay((unsigned long)((200)*(20000000/4000.0)));
+                                    return RCREG;
                                 }
+# 313 "main.c"
                                 RCIF = 0;
                                 trash = RCREG;
                             }
@@ -2392,8 +2367,8 @@ char UART_Read1() {
         else{
             RS485_TxEnable();
             UART_Write(id1);
-            UART_Write(id2);
-            UART_Write(0x32);
+
+            UART_Write(0x02);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);

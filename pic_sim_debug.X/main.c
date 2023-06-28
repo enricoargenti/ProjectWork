@@ -100,8 +100,8 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
-unsigned char id1 = 0x30;
-unsigned char id2 = 0x31;
+unsigned char id1 = 0x01;
+//unsigned char id2 = 0x31;
 unsigned char type;
 
 void main()
@@ -176,8 +176,8 @@ void main()
         num5 = GenerateRandomNumber();
         }
         UART_Write(id1);
-        UART_Write(id2);
-        type = 0x31;
+        //UART_Write(id2);
+        type = 0x01;
         UART_Write(type);
         UART_Write(num1);
         UART_Write(num2);
@@ -273,12 +273,18 @@ char UART_Read2() {
                                 lcdPrint(print_countdown);
                                 countdown --;
                                 __delay_ms(60);
-                                if(RCREG == id2){
+                                if(RCREG == 0x01){
                                     lcdSend(0x80 + 1, COMMAND);
                                     lcdSend(RCREG, DATA);                
                                     RCIF = 0;
                                     trash = RCREG;
-                                    while (countdown != 0){
+                                    countdown = 60;        
+                                    lcdSend(L_L2, COMMAND);
+                                    lcdPrint("APRI PORTA");
+                                    __delay_ms(200);
+                                    return RCREG; // Return received data
+                                }
+                                    /*while (countdown != 0){
                                         if (!RCIF){ // Wait for data to be received
                                             intToString(countdown, print_countdown);
                                             lcdSend(L_L2, COMMAND);
@@ -303,13 +309,7 @@ char UART_Read2() {
                                                     lcdPrint("FATTA");
                                                     __delay_ms(200);
                                                     return RCREG; // Return received data
-                                                }
-                                                RCIF = 0;
-                                                trash = RCREG;
-                                            }
-                                        }
-                                    }
-                                }
+                                                }*/                                              
                                 RCIF = 0;
                                 trash = RCREG;
                             }
@@ -380,8 +380,8 @@ char UART_Read1() {
         else{
             RS485_TxEnable();
             UART_Write(id1);
-            UART_Write(id2);
-            UART_Write(0x32);
+            //UART_Write(id2);
+            UART_Write(0x02);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);
