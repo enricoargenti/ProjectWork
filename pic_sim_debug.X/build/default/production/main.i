@@ -2076,7 +2076,7 @@ char KeyPadReader(void);
 
 void intToString(int, char *);
 char potenza(char, char);
-unsigned char num1,num2,num3,num4,num5;
+unsigned char num1,num2,num3,num4,num5,num21,num22,num23,num24,num25;
 const unsigned char colMask[3] ={
 
     0b11111110,
@@ -2196,8 +2196,7 @@ void main()
         UART_Write(num3);
         UART_Write(num4);
         UART_Write(num5);
-        UART_Write('\r');
-        UART_Write('\n');
+        UART_Write('*');
         lcdSend(0x01, 0);
         lcdSend(num1, 1);
         lcdSend(num2, 1);
@@ -2296,7 +2295,7 @@ char UART_Read2() {
                                     _delay((unsigned long)((200)*(20000000/4000.0)));
                                     return RCREG;
                                 }
-# 313 "main.c"
+# 312 "main.c"
                                 RCIF = 0;
                                 trash = RCREG;
                             }
@@ -2326,35 +2325,35 @@ char UART_Read1() {
             if(keypressed != 0 && count == 0){
                 lcdSend(0x01, 0);
                 lcdSend(keys[keypressed], 1);
-                num1 = keys[keypressed];
+                num21 = keys[keypressed];
                 keypressed = 0;
                 count ++;
             }
             if(keypressed != 0 && count == 1){
                 lcdSend(0x80 + count, 0);
                 lcdSend(keys[keypressed], 1);
-                num2 = keys[keypressed];
+                num22 = keys[keypressed];
                 keypressed = 0;
                 count ++;
             }
             if(keypressed != 0 && count == 2){
                 lcdSend(0x80 + count, 0);
                 lcdSend(keys[keypressed], 1);
-                num3 = keys[keypressed];
+                num23 = keys[keypressed];
                 keypressed = 0;
                 count ++;
             }
             if(keypressed != 0 && count == 3){
                 lcdSend(0x80 + count, 0);
                 lcdSend(keys[keypressed], 1);
-                num4 = keys[keypressed];
+                num24 = keys[keypressed];
                 keypressed = 0;
                 count ++;
             }
             if(keypressed != 0 && count == 4){
                 lcdSend(0x80 + count, 0);
                 lcdSend(keys[keypressed], 1);
-                num5 = keys[keypressed];
+                num25 = keys[keypressed];
                 keypressed = 0;
                 count ++;
             }
@@ -2367,15 +2366,18 @@ char UART_Read1() {
         else{
             RS485_TxEnable();
             UART_Write(id1);
-
             UART_Write(0x02);
             UART_Write(num1);
             UART_Write(num2);
             UART_Write(num3);
             UART_Write(num4);
             UART_Write(num5);
-            UART_Write('\r');
-            UART_Write('\n');
+            UART_Write(num21);
+            UART_Write(num22);
+            UART_Write(num23);
+            UART_Write(num24);
+            UART_Write(num25);
+            UART_Write('*');
             RS485_RxEnable();
             lcdSend(0x01, 0);
             lcdPrint("Mandato");
@@ -2588,7 +2590,7 @@ char KeyPadReader() {
     }
     while(1);
 }
-# 655 "main.c"
+# 657 "main.c"
 char potenza(char b, char e) {
     char n = 1;
     for (int i = 0; i < e; i++) {
