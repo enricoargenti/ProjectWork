@@ -7,7 +7,7 @@
 #pragma config WRT   = OFF      // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP    = OFF      // Flash Program Memory Code Protection bit (Code protection off)
 
-#define _XTAL_FREQ 20000000
+#define _XTAL_FREQ 8000000
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -100,7 +100,7 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
-unsigned char id1 = 0x01;
+unsigned char id1 = 0x30;
 //unsigned char id2 = 0x31;
 unsigned char type;
 
@@ -116,7 +116,7 @@ void main()
     Timer0_Init();
     while(1)
     {
-        lcdSend(L_CLR, COMMAND);
+        /*lcdSend(L_CLR, COMMAND);
         lcdPrint("Premi *");
         RS485_TxEnable();
         UART_Write('P');
@@ -127,7 +127,7 @@ void main()
         UART_Write(' ');
         UART_Write('*');
         UART_Write('\r');
-        UART_Write('\n');
+        UART_Write('\n');*/
         num1 = GenerateRandomNumber();
         num2 = GenerateRandomNumber();
         num3 = GenerateRandomNumber();
@@ -194,7 +194,7 @@ void main()
         keypressed = 0;
         RS485_RxEnable();
         flag = 1;
-        UART_Read1();
+        //UART_Read1();
         UART_Read2(); //legge char lentamente
     }
 }
@@ -272,7 +272,7 @@ char UART_Read2() {
                                 lcdPrint(print_countdown);
                                 countdown --;
                                 __delay_ms(60);
-                                if(RCREG == 0x01){
+                                if(RCREG == 0x31){
                                     lcdSend(0x80 + 1, COMMAND);
                                     lcdSend(RCREG, DATA);                
                                     RCIF = 0;

@@ -24,30 +24,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [; ;main.c: 61: void Timer0_Init(void);
 [v _Timer0_Init `(v ~T0 @X0 0 ef ]
-"59
-[; ;main.c: 59: void lcdSend(char, char);
-[v _lcdSend `(v ~T0 @X0 0 ef2`uc`uc ]
-"60
-[; ;main.c: 60: void lcdPrint(char *);
-[v _lcdPrint `(v ~T0 @X0 0 ef1`*uc ]
-"53
-[; ;main.c: 53: void RS485_TxEnable(void);
-[v _RS485_TxEnable `(v ~T0 @X0 0 ef ]
-"55
-[; ;main.c: 55: void UART_Write(char data);
-[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
 "62
 [; ;main.c: 62: unsigned char GenerateRandomNumber(void);
 [v _GenerateRandomNumber `(uc ~T0 @X0 0 ef ]
 "63
 [; ;main.c: 63: char KeyPadReader(void);
 [v _KeyPadReader `(uc ~T0 @X0 0 ef ]
+"59
+[; ;main.c: 59: void lcdSend(char, char);
+[v _lcdSend `(v ~T0 @X0 0 ef2`uc`uc ]
+"60
+[; ;main.c: 60: void lcdPrint(char *);
+[v _lcdPrint `(v ~T0 @X0 0 ef1`*uc ]
+"55
+[; ;main.c: 55: void UART_Write(char data);
+[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
 "54
 [; ;main.c: 54: void RS485_RxEnable(void);
 [v _RS485_RxEnable `(v ~T0 @X0 0 ef ]
-"56
-[; ;main.c: 56: char UART_Read1(void);
-[v _UART_Read1 `(uc ~T0 @X0 0 ef ]
 "57
 [; ;main.c: 57: char UART_Read2(void);
 [v _UART_Read2 `(uc ~T0 @X0 0 ef ]
@@ -498,10 +492,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `ui
 ]
 "103
-[; ;main.c: 103: unsigned char id1 = 0x01;
+[; ;main.c: 103: unsigned char id1 = 0x30;
 [v _id1 `uc ~T0 @X0 1 e ]
 [i _id1
--> -> 1 `i `uc
+-> -> 48 `i `uc
 ]
 "105
 [; ;main.c: 105: unsigned char type;
@@ -545,42 +539,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "118
 [; ;main.c: 118:     {
 {
-"119
-[; ;main.c: 119:         lcdSend(0x01, 0);
-[e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"120
-[; ;main.c: 120:         lcdPrint("Premi *");
-[e ( _lcdPrint (1 :s 1C ]
-"121
-[; ;main.c: 121:         RS485_TxEnable();
-[e ( _RS485_TxEnable ..  ]
-"122
-[; ;main.c: 122:         UART_Write('P');
-[e ( _UART_Write (1 -> -> 80 `ui `uc ]
-"123
-[; ;main.c: 123:         UART_Write('r');
-[e ( _UART_Write (1 -> -> 114 `ui `uc ]
-"124
-[; ;main.c: 124:         UART_Write('e');
-[e ( _UART_Write (1 -> -> 101 `ui `uc ]
-"125
-[; ;main.c: 125:         UART_Write('m');
-[e ( _UART_Write (1 -> -> 109 `ui `uc ]
-"126
-[; ;main.c: 126:         UART_Write('i');
-[e ( _UART_Write (1 -> -> 105 `ui `uc ]
-"127
-[; ;main.c: 127:         UART_Write(' ');
-[e ( _UART_Write (1 -> -> 32 `ui `uc ]
-"128
-[; ;main.c: 128:         UART_Write('*');
-[e ( _UART_Write (1 -> -> 42 `ui `uc ]
-"129
-[; ;main.c: 129:         UART_Write('\r');
-[e ( _UART_Write (1 -> -> 13 `ui `uc ]
-"130
-[; ;main.c: 130:         UART_Write('\n');
-[e ( _UART_Write (1 -> -> 10 `ui `uc ]
 "131
 [; ;main.c: 131:         num1 = GenerateRandomNumber();
 [e = _num1 ( _GenerateRandomNumber ..  ]
@@ -630,7 +588,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "144
 [; ;main.c: 144:         lcdPrint("Attendere");
-[e ( _lcdPrint (1 :s 2C ]
+[e ( _lcdPrint (1 :s 1C ]
 "145
 [; ;main.c: 145:         while(num1 != 0x30 && num1 != 0x31 && num1 != 0x32 && num1 != 0x33 &&
 [e $U 108  ]
@@ -654,7 +612,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "151
 [; ;main.c: 151:         lcdPrint("Attendere.");
-[e ( _lcdPrint (1 :s 3C ]
+[e ( _lcdPrint (1 :s 2C ]
 "152
 [; ;main.c: 152:         while(num2 != 0x30 && num2 != 0x31 && num2 != 0x32 && num2 != 0x33 &&
 [e $U 111  ]
@@ -678,7 +636,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "158
 [; ;main.c: 158:         lcdPrint("Attendere..");
-[e ( _lcdPrint (1 :s 4C ]
+[e ( _lcdPrint (1 :s 3C ]
 "159
 [; ;main.c: 159:         while(num3 != 0x30 && num3 != 0x31 && num3 != 0x32 && num3 != 0x33 &&
 [e $U 114  ]
@@ -702,7 +660,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "165
 [; ;main.c: 165:         lcdPrint("Attendere...");
-[e ( _lcdPrint (1 :s 5C ]
+[e ( _lcdPrint (1 :s 4C ]
 "166
 [; ;main.c: 166:         while(num4 != 0x30 && num4 != 0x31 && num4 != 0x32 && num4 != 0x33 &&
 [e $U 117  ]
@@ -726,7 +684,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "172
 [; ;main.c: 172:         lcdPrint("Attendere....");
-[e ( _lcdPrint (1 :s 6C ]
+[e ( _lcdPrint (1 :s 5C ]
 "173
 [; ;main.c: 173:         while(num5 != 0x30 && num5 != 0x31 && num5 != 0x32 && num5 != 0x33 &&
 [e $U 120  ]
@@ -799,9 +757,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "196
 [; ;main.c: 196:         flag = 1;
 [e = _flag -> 1 `i ]
-"197
-[; ;main.c: 197:         UART_Read1();
-[e ( _UART_Read1 ..  ]
 "198
 [; ;main.c: 198:         UART_Read2();
 [e ( _UART_Read2 ..  ]
@@ -930,7 +885,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "241
 [; ;main.c: 241:             lcdPrint("Attendere");
-[e ( _lcdPrint (1 :s 7C ]
+[e ( _lcdPrint (1 :s 6C ]
 "242
 [; ;main.c: 242:             intToString(countdown, print_countdown);
 [e ( _intToString (2 , -> _countdown `i &U _print_countdown ]
@@ -944,8 +899,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 245:             countdown --;
 [e -- _countdown -> -> 1 `i `uc ]
 "246
-[; ;main.c: 246:             _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 246:             _delay((unsigned long)((60)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "247
 [; ;main.c: 247:         }
 }
@@ -972,8 +927,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 253:                 countdown --;
 [e -- _countdown -> -> 1 `i `uc ]
 "254
-[; ;main.c: 254:                 _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 254:                 _delay((unsigned long)((60)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "255
 [; ;main.c: 255:                 if(RCREG == id1){
 [e $ ! == -> _RCREG `i -> _id1 `i 139  ]
@@ -1012,8 +967,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 265:                             countdown --;
 [e -- _countdown -> -> 1 `i `uc ]
 "266
-[; ;main.c: 266:                             _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 266:                             _delay((unsigned long)((60)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "267
 [; ;main.c: 267:                         }
 }
@@ -1040,11 +995,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 273:                                 countdown --;
 [e -- _countdown -> -> 1 `i `uc ]
 "274
-[; ;main.c: 274:                                 _delay((unsigned long)((60)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 274:                                 _delay((unsigned long)((60)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "275
-[; ;main.c: 275:                                 if(RCREG == 0x01){
-[e $ ! == -> _RCREG `i -> 1 `i 148  ]
+[; ;main.c: 275:                                 if(RCREG == 0x31){
+[e $ ! == -> _RCREG `i -> 49 `i 148  ]
 {
 "276
 [; ;main.c: 276:                                     lcdSend(0x80 + 1, 0);
@@ -1066,10 +1021,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
 "282
 [; ;main.c: 282:                                     lcdPrint("APRI PORTA");
-[e ( _lcdPrint (1 :s 8C ]
+[e ( _lcdPrint (1 :s 7C ]
 "283
-[; ;main.c: 283:                                     _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 283:                                     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "284
 [; ;main.c: 284:                                     return RCREG;
 [e ) -> _RCREG `uc ]
@@ -1139,7 +1094,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "324
 [; ;main.c: 324:     lcdPrint("Tempo Scaduto");
-[e ( _lcdPrint (1 :s 9C ]
+[e ( _lcdPrint (1 :s 8C ]
 "325
 [; ;main.c: 325:     RCIF = 0;
 [e = _RCIF -> -> 0 `i `b ]
@@ -1147,8 +1102,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 326:     countdown = 60;
 [e = _countdown -> -> 60 `i `uc ]
 "327
-[; ;main.c: 327:     _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 327:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "328
 [; ;main.c: 328:     return RCREG;
 [e ) -> _RCREG `uc ]
@@ -1307,8 +1262,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 376:             countdown --;
 [e -- _countdown -> -> 1 `i `uc ]
 "377
-[; ;main.c: 377:             _delay((unsigned long)((80)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 377:             _delay((unsigned long)((80)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "378
 [; ;main.c: 378:         }
 }
@@ -1367,7 +1322,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "396
 [; ;main.c: 396:             lcdPrint("Mandato");
-[e ( _lcdPrint (1 :s 10C ]
+[e ( _lcdPrint (1 :s 9C ]
 "397
 [; ;main.c: 397:             RCIF = 0;
 [e = _RCIF -> -> 0 `i `b ]
@@ -1375,8 +1330,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 398:             countdown = 60;
 [e = _countdown -> -> 60 `i `uc ]
 "399
-[; ;main.c: 399:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 399:             _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "400
 [; ;main.c: 400:             return RCREG;
 [e ) -> _RCREG `uc ]
@@ -1398,7 +1353,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdSend (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
 "404
 [; ;main.c: 404:     lcdPrint("Codice Scaduto");
-[e ( _lcdPrint (1 :s 11C ]
+[e ( _lcdPrint (1 :s 10C ]
 "405
 [; ;main.c: 405:     RCIF = 0;
 [e = _RCIF -> -> 0 `i `b ]
@@ -1406,8 +1361,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 406:     countdown = 60;
 [e = _countdown -> -> 60 `i `uc ]
 "407
-[; ;main.c: 407:     _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 407:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "408
 [; ;main.c: 408:     return RCREG;
 [e ) -> _RCREG `uc ]
@@ -1429,8 +1384,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 415:     PORTEbits.RE1 = 0;
 [e = . . _PORTEbits 0 1 -> -> 0 `i `uc ]
 "416
-[; ;main.c: 416:     _delay((unsigned long)((20)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 416:     _delay((unsigned long)((20)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "417
 [; ;main.c: 417:     PORTEbits.RE1 = 1;
 [e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
@@ -1438,14 +1393,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 418:     lcdSend(0x38, 0);
 [e ( _lcdSend (2 , -> -> 56 `i `uc -> -> 0 `i `uc ]
 "419
-[; ;main.c: 419:     _delay((unsigned long)((5)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 419:     _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "420
 [; ;main.c: 420:     lcdSend(0x38, 0);
 [e ( _lcdSend (2 , -> -> 56 `i `uc -> -> 0 `i `uc ]
 "421
-[; ;main.c: 421:     _delay((unsigned long)((1)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 421:     _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "422
 [; ;main.c: 422:     lcdSend(0x38, 0);
 [e ( _lcdSend (2 , -> -> 56 `i `uc -> -> 0 `i `uc ]
@@ -2059,8 +2014,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 239  ]
 {
 "590
-[; ;main.c: 590:                 _delay((unsigned long)((10)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 590:                 _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "591
 [; ;main.c: 591:                 if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
 [e $ ! && != & -> _PORTD `i -> *U + &U _rowMask * -> _rowScan `ux -> -> # *U &U _rowMask `ui `ux `i -> 0 `i ! _old_btn 240  ]
@@ -2209,14 +2164,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 680: }
 [e :UE 247 ]
 }
-[a 9C 84 101 109 112 111 32 83 99 97 100 117 116 111 0 ]
-[a 11C 67 111 100 105 99 101 32 83 99 97 100 117 116 111 0 ]
-[a 10C 77 97 110 100 97 116 111 0 ]
-[a 2C 65 116 116 101 110 100 101 114 101 0 ]
-[a 7C 65 116 116 101 110 100 101 114 101 0 ]
-[a 8C 65 80 82 73 32 80 79 82 84 65 0 ]
-[a 3C 65 116 116 101 110 100 101 114 101 46 0 ]
-[a 4C 65 116 116 101 110 100 101 114 101 46 46 0 ]
-[a 5C 65 116 116 101 110 100 101 114 101 46 46 46 0 ]
-[a 6C 65 116 116 101 110 100 101 114 101 46 46 46 46 0 ]
-[a 1C 80 114 101 109 105 32 42 0 ]
+[a 8C 84 101 109 112 111 32 83 99 97 100 117 116 111 0 ]
+[a 10C 67 111 100 105 99 101 32 83 99 97 100 117 116 111 0 ]
+[a 9C 77 97 110 100 97 116 111 0 ]
+[a 1C 65 116 116 101 110 100 101 114 101 0 ]
+[a 6C 65 116 116 101 110 100 101 114 101 0 ]
+[a 7C 65 80 82 73 32 80 79 82 84 65 0 ]
+[a 2C 65 116 116 101 110 100 101 114 101 46 0 ]
+[a 3C 65 116 116 101 110 100 101 114 101 46 46 0 ]
+[a 4C 65 116 116 101 110 100 101 114 101 46 46 46 0 ]
+[a 5C 65 116 116 101 110 100 101 114 101 46 46 46 46 0 ]

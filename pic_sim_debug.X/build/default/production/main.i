@@ -2112,7 +2112,7 @@ int index;
 char received;
 unsigned char randomNum;
 unsigned int count = 0;
-unsigned char id1 = 0x01;
+unsigned char id1 = 0x30;
 
 unsigned char type;
 
@@ -2128,18 +2128,7 @@ void main()
     Timer0_Init();
     while(1)
     {
-        lcdSend(0x01, 0);
-        lcdPrint("Premi *");
-        RS485_TxEnable();
-        UART_Write('P');
-        UART_Write('r');
-        UART_Write('e');
-        UART_Write('m');
-        UART_Write('i');
-        UART_Write(' ');
-        UART_Write('*');
-        UART_Write('\r');
-        UART_Write('\n');
+# 131 "main.c"
         num1 = GenerateRandomNumber();
         num2 = GenerateRandomNumber();
         num3 = GenerateRandomNumber();
@@ -2206,7 +2195,7 @@ void main()
         keypressed = 0;
         RS485_RxEnable();
         flag = 1;
-        UART_Read1();
+
         UART_Read2();
     }
 }
@@ -2255,7 +2244,7 @@ char UART_Read2() {
             lcdSend(0xC0, 0);
             lcdPrint(print_countdown);
             countdown --;
-            _delay((unsigned long)((60)*(20000000/4000.0)));
+            _delay((unsigned long)((60)*(8000000/4000.0)));
         }
         else{
             while (countdown != 0){
@@ -2263,7 +2252,7 @@ char UART_Read2() {
                 lcdSend(0xC0, 0);
                 lcdPrint(print_countdown);
                 countdown --;
-                _delay((unsigned long)((60)*(20000000/4000.0)));
+                _delay((unsigned long)((60)*(8000000/4000.0)));
                 if(RCREG == id1){
                     lcdSend(0x01, 0);
                     lcdSend(RCREG, 1);
@@ -2275,7 +2264,7 @@ char UART_Read2() {
                             lcdSend(0xC0, 0);
                             lcdPrint(print_countdown);
                             countdown --;
-                            _delay((unsigned long)((60)*(20000000/4000.0)));
+                            _delay((unsigned long)((60)*(8000000/4000.0)));
                         }
                         else{
                             while (countdown != 0){
@@ -2283,8 +2272,8 @@ char UART_Read2() {
                                 lcdSend(0xC0, 0);
                                 lcdPrint(print_countdown);
                                 countdown --;
-                                _delay((unsigned long)((60)*(20000000/4000.0)));
-                                if(RCREG == 0x01){
+                                _delay((unsigned long)((60)*(8000000/4000.0)));
+                                if(RCREG == 0x31){
                                     lcdSend(0x80 + 1, 0);
                                     lcdSend(RCREG, 1);
                                     RCIF = 0;
@@ -2292,7 +2281,7 @@ char UART_Read2() {
                                     countdown = 60;
                                     lcdSend(0xC0, 0);
                                     lcdPrint("APRI PORTA");
-                                    _delay((unsigned long)((200)*(20000000/4000.0)));
+                                    _delay((unsigned long)((200)*(8000000/4000.0)));
                                     return RCREG;
                                 }
 # 312 "main.c"
@@ -2311,7 +2300,7 @@ char UART_Read2() {
     lcdPrint("Tempo Scaduto");
     RCIF = 0;
     countdown = 60;
-    _delay((unsigned long)((200)*(20000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
     return RCREG;
 
 
@@ -2361,7 +2350,7 @@ char UART_Read1() {
             lcdSend(0xC0, 0);
             lcdPrint(print_countdown);
             countdown --;
-            _delay((unsigned long)((80)*(20000000/4000.0)));
+            _delay((unsigned long)((80)*(8000000/4000.0)));
         }
         else{
             RS485_TxEnable();
@@ -2383,7 +2372,7 @@ char UART_Read1() {
             lcdPrint("Mandato");
             RCIF = 0;
             countdown = 60;
-            _delay((unsigned long)((100)*(20000000/4000.0)));
+            _delay((unsigned long)((100)*(8000000/4000.0)));
             return RCREG;
         }
     }
@@ -2391,7 +2380,7 @@ char UART_Read1() {
     lcdPrint("Codice Scaduto");
     RCIF = 0;
     countdown = 60;
-    _delay((unsigned long)((200)*(20000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
     return RCREG;
 
 
@@ -2400,12 +2389,12 @@ char UART_Read1() {
 void initLCD() {
     PORTEbits.RE2 = 0;
     PORTEbits.RE1 = 0;
-    _delay((unsigned long)((20)*(20000000/4000.0)));
+    _delay((unsigned long)((20)*(8000000/4000.0)));
     PORTEbits.RE1 = 1;
     lcdSend(0x38, 0);
-    _delay((unsigned long)((5)*(20000000/4000.0)));
+    _delay((unsigned long)((5)*(8000000/4000.0)));
     lcdSend(0x38, 0);
-    _delay((unsigned long)((1)*(20000000/4000.0)));
+    _delay((unsigned long)((1)*(8000000/4000.0)));
     lcdSend(0x38, 0);
     lcdSend(0x08, 0);
     lcdSend(0x0F, 0);
@@ -2574,7 +2563,7 @@ char KeyPadReader() {
                 stato++;
             }
             if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                _delay((unsigned long)((10)*(20000000/4000.0)));
+                _delay((unsigned long)((10)*(8000000/4000.0)));
                 if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
                     old_btn = 1;
                 }
