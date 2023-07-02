@@ -2067,6 +2067,7 @@ void RS485_RxEnable(void);
 void UART_Write(char data);
 char UART_Read1(void);
 char UART_Read2(void);
+char UART_ReadFINALE(void);
 void initLCD(void);
 void lcdSend(char, char);
 void lcdPrint(char *);
@@ -2101,7 +2102,7 @@ static __bit old_btn;
 char stato = 0;
 char old_stato = 0;
 char codice[6];
-char countdown = 60;
+int countdown = 180;
 char print_countdown[3];
 char data[6];
 char stringa[16];
@@ -2113,8 +2114,8 @@ char received;
 unsigned char randomNum;
 unsigned int count = 0;
 unsigned char id1 = 0x30;
-
 unsigned char type;
+unsigned char message[2];
 
 void main()
 {
@@ -2128,7 +2129,10 @@ void main()
     Timer0_Init();
     while(1)
     {
-# 131 "main.c"
+        lcdSend(0x01, 0);
+        lcdPrint("Premi *");
+        countdown = 180;
+# 133 "main.c"
         num1 = GenerateRandomNumber();
         num2 = GenerateRandomNumber();
         num3 = GenerateRandomNumber();
@@ -2177,8 +2181,8 @@ void main()
         num5 = GenerateRandomNumber();
         }
         UART_Write(id1);
-
         type = 0x01;
+        RS485_TxEnable();
         UART_Write(type);
         UART_Write(num1);
         UART_Write(num2);
@@ -2195,8 +2199,11 @@ void main()
         keypressed = 0;
         RS485_RxEnable();
         flag = 1;
-
-        UART_Read2();
+        UART_Read1();
+        lcdSend(0x01, 0);
+        lcdSend(0xC0, 0);
+        lcdPrint("Attendere");
+        UART_ReadFINALE();
     }
 }
 
@@ -2234,81 +2241,37 @@ void UART_Write(char data) {
     TXREG = data;
 }
 
-char UART_Read2() {
-    char trash;
-    while (countdown != 0){
-        if (!RCIF){
-            lcdSend(0x01, 0);
-            lcdPrint("Attendere");
+char UART_ReadFINALE(){
+    char i = 0;
+    while(i < 2){
+        while (countdown != 0 && !RCIF){
             intToString(countdown, print_countdown);
-            lcdSend(0xC0, 0);
+            lcdSend(0x80 + 13, 0);
             lcdPrint(print_countdown);
             countdown --;
-            _delay((unsigned long)((60)*(8000000/4000.0)));
+            _delay((unsigned long)((600)*(8000000/4000.0)));
         }
-        else{
-            while (countdown != 0){
-                intToString(countdown, print_countdown);
-                lcdSend(0xC0, 0);
-                lcdPrint(print_countdown);
-                countdown --;
-                _delay((unsigned long)((60)*(8000000/4000.0)));
-                if(RCREG == id1){
-                    lcdSend(0x01, 0);
-                    lcdSend(RCREG, 1);
-                    RCIF = 0;
-                    trash = RCREG;
-                    while (countdown != 0){
-                        if (!RCIF){
-                            intToString(countdown, print_countdown);
-                            lcdSend(0xC0, 0);
-                            lcdPrint(print_countdown);
-                            countdown --;
-                            _delay((unsigned long)((60)*(8000000/4000.0)));
-                        }
-                        else{
-                            while (countdown != 0){
-                                intToString(countdown, print_countdown);
-                                lcdSend(0xC0, 0);
-                                lcdPrint(print_countdown);
-                                countdown --;
-                                _delay((unsigned long)((60)*(8000000/4000.0)));
-                                if(RCREG == 0x31){
-                                    lcdSend(0x80 + 1, 0);
-                                    lcdSend(RCREG, 1);
-                                    RCIF = 0;
-                                    trash = RCREG;
-                                    countdown = 60;
-                                    lcdSend(0xC0, 0);
-                                    lcdPrint("APRI PORTA");
-                                    _delay((unsigned long)((200)*(8000000/4000.0)));
-                                    return RCREG;
-                                }
-# 312 "main.c"
-                                RCIF = 0;
-                                trash = RCREG;
-                            }
-                        }
-                    }
-                }
-                RCIF = 0;
-                trash = RCREG;
-            }
-        }
+
+        message[i] = RCREG;
+        lcdSend(0x80 + i, 0);
+        lcdSend(message[i], 1);
+        i ++;
+        intToString(countdown, print_countdown);
+        lcdSend(0x80 + 13, 0);
+        lcdPrint(print_countdown);
+        countdown --;
     }
-    lcdSend(0x01, 0);
-    lcdPrint("Tempo Scaduto");
-    RCIF = 0;
-    countdown = 60;
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    if (message[0] == id1 && message[1] == 0x00 ){
+        lcdSend(0xC0, 0);
+        lcdPrint("APRI PORTA");
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        return RCREG;
+    }
     return RCREG;
-
-
 }
 
 char UART_Read1() {
     char count = 0;
-    countdown = 60;
     while (countdown != 0){
         if (count != 5){
             if(keypressed != 0 && count == 0){
@@ -2347,10 +2310,10 @@ char UART_Read1() {
                 count ++;
             }
             intToString(countdown, print_countdown);
-            lcdSend(0xC0, 0);
+            lcdSend(0x80 + 13, 0);
             lcdPrint(print_countdown);
             countdown --;
-            _delay((unsigned long)((80)*(8000000/4000.0)));
+            _delay((unsigned long)((600)*(8000000/4000.0)));
         }
         else{
             RS485_TxEnable();
@@ -2371,16 +2334,14 @@ char UART_Read1() {
             lcdSend(0x01, 0);
             lcdPrint("Mandato");
             RCIF = 0;
-            countdown = 60;
-            _delay((unsigned long)((100)*(8000000/4000.0)));
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
             return RCREG;
         }
     }
     lcdSend(0x01, 0);
     lcdPrint("Codice Scaduto");
     RCIF = 0;
-    countdown = 60;
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((1000)*(8000000/4000.0)));
     return RCREG;
 
 
@@ -2432,95 +2393,48 @@ void lcdPrint(char *str) {
 }
 
 void __attribute__((picinterrupt(("")))) ISR() {
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    if(flag == 1){
-        TRISD |= 0x0F;
+# 450 "main.c"
+        while (!TMR0IF){
+            continue;
+        }
+        TMR0IF = 0;
+        while (!TMR0IF){
+            continue;
+        }
+        TMR0IF = 0;
+        if(flag == 1){
+            TRISD |= 0x0F;
 
-        for (colScan = 0; colScan < 3; colScan++) {
-            PORTB = PORTB | 0x07;
-            PORTB &= colMask[colScan];
+            for (colScan = 0; colScan < 3; colScan++) {
+                PORTB = PORTB | 0x07;
+                PORTB &= colMask[colScan];
 
 
-            for (rowScan = 0; rowScan < 4; rowScan++) {
-                if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-                    old_btn = 0;
-                    stato++;
-                }
-                if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-
+                for (rowScan = 0; rowScan < 4; rowScan++) {
+                    if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
+                        old_btn = 0;
+                        stato++;
+                    }
                     if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                        old_btn = 1;
+
+                        if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
+                            old_btn = 1;
+                        }
+                    }
+                    if (stato != old_stato) {
+                        keypressed = rowScan + (4 * colScan);
+
+
+                        old_stato = stato;
                     }
                 }
-                if (stato != old_stato) {
-                    keypressed = rowScan + (4 * colScan);
-
-
-                    old_stato = stato;
-                }
             }
+            TRISD |= 0x00;
         }
-        TRISD |= 0x00;
-    }
+
+
+
+
 }
 
 void Timer0_Init() {
@@ -2579,7 +2493,7 @@ char KeyPadReader() {
     }
     while(1);
 }
-# 657 "main.c"
+# 600 "main.c"
 char potenza(char b, char e) {
     char n = 1;
     for (int i = 0; i < e; i++) {

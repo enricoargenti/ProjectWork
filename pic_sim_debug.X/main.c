@@ -55,6 +55,7 @@ void RS485_RxEnable(void);
 void UART_Write(char data);
 char UART_Read1(void);
 char UART_Read2(void);
+char UART_ReadFINALE(void);
 void initLCD(void);
 void lcdSend(char, char);
 void lcdPrint(char *);
@@ -89,7 +90,7 @@ static __bit old_btn;
 char stato = 0;
 char old_stato = 0;
 char codice[6];
-char countdown = 60;
+int countdown = 180;
 char print_countdown[3];
 char data[6];
 char stringa[16];
@@ -101,8 +102,8 @@ char received;
 unsigned char randomNum;
 unsigned int count = 0;
 unsigned char id1 = 0x30;
-//unsigned char id2 = 0x31;
 unsigned char type;
+unsigned char message[2];
 
 void main()
 {
@@ -116,9 +117,10 @@ void main()
     Timer0_Init();
     while(1)
     {
-        /*lcdSend(L_CLR, COMMAND);
+        lcdSend(L_CLR, COMMAND);
         lcdPrint("Premi *");
-        RS485_TxEnable();
+        countdown = 180;
+        /*
         UART_Write('P');
         UART_Write('r');
         UART_Write('e');
@@ -176,8 +178,8 @@ void main()
         num5 = GenerateRandomNumber();
         }
         UART_Write(id1);
-        //UART_Write(id2);
         type = 0x01;
+        RS485_TxEnable();
         UART_Write(type);
         UART_Write(num1);
         UART_Write(num2);
@@ -194,8 +196,11 @@ void main()
         keypressed = 0;
         RS485_RxEnable();
         flag = 1;
-        //UART_Read1();
-        UART_Read2(); //legge char lentamente
+        UART_Read1();
+        lcdSend(L_CLR, COMMAND);
+        lcdSend(L_L2, COMMAND);
+        lcdPrint("Attendere");
+        UART_ReadFINALE(); //legge char lentamente
     }
 }
 
@@ -233,106 +238,37 @@ void UART_Write(char data) {
     TXREG = data; // Transmit data
 }
 
-char UART_Read2() {
-    char trash;
-    while (countdown != 0){
-        if (!RCIF){
-            lcdSend(L_CLR, COMMAND);
-            lcdPrint("Attendere");
+char UART_ReadFINALE(){
+    char i = 0;
+    while(i < 2){
+        while (countdown != 0 && !RCIF){
             intToString(countdown, print_countdown);
-            lcdSend(L_L2, COMMAND);
+            lcdSend(0x80 + 13, COMMAND);
             lcdPrint(print_countdown);
             countdown --;
-            __delay_ms(60);
-        }        
-        else{
-            while (countdown != 0){
-                intToString(countdown, print_countdown);
-                lcdSend(L_L2, COMMAND);
-                lcdPrint(print_countdown);
-                countdown --;
-                __delay_ms(60);
-                if(RCREG == id1){
-                    lcdSend(L_CLR, COMMAND);
-                    lcdSend(RCREG, DATA);
-                    RCIF = 0;
-                    trash = RCREG;
-                    while (countdown != 0){
-                        if (!RCIF){ // Wait for data to be received
-                            intToString(countdown, print_countdown);
-                            lcdSend(L_L2, COMMAND);
-                            lcdPrint(print_countdown);
-                            countdown --;
-                            __delay_ms(60);
-                        }
-                        else{
-                            while (countdown != 0){
-                                intToString(countdown, print_countdown);
-                                lcdSend(L_L2, COMMAND);
-                                lcdPrint(print_countdown);
-                                countdown --;
-                                __delay_ms(60);
-                                if(RCREG == 0x31){
-                                    lcdSend(0x80 + 1, COMMAND);
-                                    lcdSend(RCREG, DATA);                
-                                    RCIF = 0;
-                                    trash = RCREG;
-                                    countdown = 60;        
-                                    lcdSend(L_L2, COMMAND);
-                                    lcdPrint("APRI PORTA");
-                                    __delay_ms(200);
-                                    return RCREG; // Return received data
-                                }
-                                    /*while (countdown != 0){
-                                        if (!RCIF){ // Wait for data to be received
-                                            intToString(countdown, print_countdown);
-                                            lcdSend(L_L2, COMMAND);
-                                            lcdPrint(print_countdown);
-                                            countdown --;
-                                            __delay_ms(60);
-                                        }
-                                        else{
-                                            while (countdown != 0){
-                                                intToString(countdown, print_countdown);
-                                                lcdSend(L_L2, COMMAND);
-                                                lcdPrint(print_countdown);
-                                                countdown --;
-                                                __delay_ms(60);
-                                                if(RCREG == 0x33){
-                                                    lcdSend(0x80 + 2, COMMAND);
-                                                    lcdSend(RCREG, DATA);                
-                                                    RCIF = 0;
-                                                    trash = RCREG;
-                                                    countdown = 60;        
-                                                    lcdSend(L_L2, COMMAND);
-                                                    lcdPrint("FATTA");
-                                                    __delay_ms(200);
-                                                    return RCREG; // Return received data
-                                                }*/                                              
-                                RCIF = 0;
-                                trash = RCREG;
-                            }
-                        }
-                    }
-                }
-                RCIF = 0;
-                trash = RCREG;
-            }      
+            __delay_ms(600);
         }
+        //RCIF = 0;
+        message[i] = RCREG;
+        lcdSend(0x80 + i, COMMAND);
+        lcdSend(message[i], DATA);
+        i ++;
+        intToString(countdown, print_countdown);
+        lcdSend(0x80 + 13, COMMAND);
+        lcdPrint(print_countdown);
+        countdown --;
     }
-    lcdSend(L_CLR, COMMAND);
-    lcdPrint("Tempo Scaduto");
-    RCIF = 0;
-    countdown = 60;
-    __delay_ms(200);
-    return RCREG;
-        /*while (!RCIF) // Wait for data to be received
-        continue;*/
+    if (message[0] == id1 && message[1] == 0x00 ){
+        lcdSend(L_L2, COMMAND);
+        lcdPrint("APRI PORTA");
+        __delay_ms(1000);
+        return RCREG; // Return received data
+    }
+    return RCREG; 
 }
 
 char UART_Read1() {
     char count = 0;
-    countdown = 60;
     while (countdown != 0){   //!RCIF
         if (count != 5){
             if(keypressed != 0 && count == 0){
@@ -371,10 +307,10 @@ char UART_Read1() {
                 count ++;
             }
             intToString(countdown, print_countdown);
-            lcdSend(L_L2, COMMAND);
+            lcdSend(0x80 + 13, COMMAND);
             lcdPrint(print_countdown);
             countdown --;
-            __delay_ms(80);
+            __delay_ms(600);
         }        
         else{
             RS485_TxEnable();
@@ -395,16 +331,14 @@ char UART_Read1() {
             lcdSend(L_CLR, COMMAND);
             lcdPrint("Mandato");
             RCIF = 0;
-            countdown = 60;
-            __delay_ms(100);
+            __delay_ms(1000);
             return RCREG; // Return received data
         }
     }
     lcdSend(L_CLR, COMMAND);
     lcdPrint("Codice Scaduto");
     RCIF = 0;
-    countdown = 60;
-    __delay_ms(200);
+    __delay_ms(1000);
     return RCREG;
         /*while (!RCIF) // Wait for data to be received
         continue;*/
@@ -456,7 +390,7 @@ void lcdPrint(char *str) {
 }
 
 void __interrupt() ISR() {
-    while (!TMR0IF){
+    /*while (!TMR0IF){
         continue;
     }
     TMR0IF = 0;
@@ -507,44 +441,53 @@ void __interrupt() ISR() {
     while (!TMR0IF){
         continue;
     }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    while (!TMR0IF){
-        continue;
-    }
-    TMR0IF = 0;
-    if(flag == 1){
-        TRISD |= 0x0F;
-        // porto a massa una colonna alla volta
-        for (colScan = 0; colScan < 3; colScan++) {
-            PORTB = PORTB | 0x07; // porto tutte le colonne a 1
-            PORTB &= colMask[colScan]; // porto a zero la colonna attuale
+    TMR0IF = 0;*/
+    //if (flag == 0){
+    /*while (countdown != 0){
+        intToString(countdown, print_countdown);
+        lcdSend(0x80 + 13, COMMAND);
+        lcdPrint(print_countdown);*/
+        while (!TMR0IF){
+            continue;
+        }
+        TMR0IF = 0;
+        while (!TMR0IF){
+            continue;
+        }
+        TMR0IF = 0;
+        if(flag == 1){
+            TRISD |= 0x0F;
+            // porto a massa una colonna alla volta
+            for (colScan = 0; colScan < 3; colScan++) {
+                PORTB = PORTB | 0x07; // porto tutte le colonne a 1
+                PORTB &= colMask[colScan]; // porto a zero la colonna attuale
 
-            // ciclo sulle righe
-            for (rowScan = 0; rowScan < 4; rowScan++) {
-                if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
-                    old_btn = 0;
-                    stato++;
-                }
-                if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                    //__delay_ms(10);
+                // ciclo sulle righe
+                for (rowScan = 0; rowScan < 4; rowScan++) {
+                    if (!(PORTD & rowMask[rowScan]) && (old_btn)) {
+                        old_btn = 0;
+                        stato++;
+                    }
                     if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
-                        old_btn = 1;
+                        //__delay_ms(10);
+                        if ((PORTD & rowMask[rowScan]) && (!old_btn)) {
+                            old_btn = 1;
+                        }
+                    }
+                    if (stato != old_stato) {
+                        keypressed = rowScan + (4 * colScan); // numero di pulsante premuto
+                        // chiamo la funzione
+                        //KeyPressed(keypressed, codice);
+                        old_stato = stato;
                     }
                 }
-                if (stato != old_stato) {
-                    keypressed = rowScan + (4 * colScan); // numero di pulsante premuto
-                    // chiamo la funzione
-                    //KeyPressed(keypressed, codice);
-                    old_stato = stato;
-                }
             }
+            TRISD |= 0x00;
         }
-        TRISD |= 0x00;
+        /*countdown --;
+        __delay_ms(10);
     }
+    }*/
 }
 
 void Timer0_Init() {
@@ -678,6 +621,103 @@ void intToString(int n, char *str) {
 
     str[i] = '\0';
 }
+
+/*char UART_Read2() {
+    char trash;
+    while (countdown != 0){
+        if (!RCIF){
+            lcdSend(L_CLR, COMMAND);
+            lcdPrint("Attendere");
+            intToString(countdown, print_countdown);
+            lcdSend(L_L2, COMMAND);
+            lcdPrint(print_countdown);
+            countdown --;
+            __delay_ms(60);
+        }        
+        else{
+            while (countdown != 0){
+                intToString(countdown, print_countdown);
+                lcdSend(L_L2, COMMAND);
+                lcdPrint(print_countdown);
+                countdown --;
+                __delay_ms(60);
+                if(RCREG == id1){
+                    lcdSend(L_CLR, COMMAND);
+                    lcdSend(RCREG, DATA);
+                    RCIF = 0;
+                    trash = RCREG;
+                    while (countdown != 0){
+                        if (!RCIF){ // Wait for data to be received
+                            intToString(countdown, print_countdown);
+                            lcdSend(L_L2, COMMAND);
+                            lcdPrint(print_countdown);
+                            countdown --;
+                            __delay_ms(60);
+                        }
+                        else{
+                            while (countdown != 0){
+                                intToString(countdown, print_countdown);
+                                lcdSend(L_L2, COMMAND);
+                                lcdPrint(print_countdown);
+                                countdown --;
+                                __delay_ms(60);
+                                if(RCREG == 0x31){
+                                    lcdSend(0x80 + 1, COMMAND);
+                                    lcdSend(RCREG, DATA);                
+                                    RCIF = 0;
+                                    trash = RCREG;
+                                    countdown = 60;        
+                                    lcdSend(L_L2, COMMAND);
+                                    lcdPrint("APRI PORTA");
+                                    __delay_ms(200);
+                                    return RCREG; // Return received data
+                                }
+                                    while (countdown != 0){
+                                        if (!RCIF){ // Wait for data to be received
+                                            intToString(countdown, print_countdown);
+                                            lcdSend(L_L2, COMMAND);
+                                            lcdPrint(print_countdown);
+                                            countdown --;
+                                            __delay_ms(60);
+                                        }
+                                        else{
+                                            while (countdown != 0){
+                                                intToString(countdown, print_countdown);
+                                                lcdSend(L_L2, COMMAND);
+                                                lcdPrint(print_countdown);
+                                                countdown --;
+                                                __delay_ms(60);
+                                                if(RCREG == 0x33){
+                                                    lcdSend(0x80 + 2, COMMAND);
+                                                    lcdSend(RCREG, DATA);                
+                                                    RCIF = 0;
+                                                    trash = RCREG;
+                                                    countdown = 60;        
+                                                    lcdSend(L_L2, COMMAND);
+                                                    lcdPrint("FATTA");
+                                                    __delay_ms(200);
+                                                    return RCREG; // Return received data
+                                                }*/                                              
+                                /*RCIF = 0;
+                                trash = RCREG;
+                            }
+                        }
+                    }
+                }
+                RCIF = 0;
+                trash = RCREG;
+            }      
+        }
+    }
+    lcdSend(L_CLR, COMMAND);
+    lcdPrint("Tempo Scaduto");
+    RCIF = 0;
+    countdown = 60;
+    __delay_ms(200);
+    return RCREG;
+        while (!RCIF) // Wait for data to be received
+        continue;
+}*/
 
 /*void init_timer0(void) {
     int Count=0;
